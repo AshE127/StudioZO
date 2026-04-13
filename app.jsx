@@ -68,15 +68,31 @@ function ImgBox({h=380,label="Studio Photography",ratio,style:sx={}}){
   </div>
 }
 
+// ─── BSport Widget (Live) — Company ID: 5566 ───
+// Calendar: responsive display (card on desktop, list on mobile)
+// Subscription: membership purchases
+const BSPORT_IDS = { calendar: "bsport-widget-805329", subscription: "bsport-widget-12349" };
 function BsportWidget({type="calendar",h=550}){
-  return<div style={{background:"var(--white)",border:"1px dashed var(--light-gray)",borderRadius:4,padding:48,minHeight:h,display:"flex",flexDirection:"column",alignItems:"center",justifyContent:"center",textAlign:"center"}}>
-    <div style={{width:48,height:48,borderRadius:"50%",border:"1.5px solid var(--nude)",display:"flex",alignItems:"center",justifyContent:"center",marginBottom:16}}>
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--nude)" strokeWidth="1.5"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-    </div>
-    <h3 style={{fontFamily:"var(--serif)",fontSize:"1.2rem",fontWeight:500,color:"var(--black)",marginBottom:6}}>BSport {type==="calendar"?"Schedule":"Membership"} Widget</h3>
-    <P style={{maxWidth:360,marginBottom:16}}>Your BSport embed code will replace this placeholder.</P>
-    <code style={{background:"var(--nude-bg)",border:"1px solid rgba(201,124,93,.15)",padding:"5px 12px",fontSize:".68rem",color:"var(--nude)",fontFamily:"monospace",borderRadius:2}}>{`<!-- BSport ${type} widget -->`}</code>
-  </div>
+  const mountId = BSPORT_IDS[type] || `bsport-widget-${type}`;
+  useEffect(()=>{
+    if(typeof window.MountBsportWidget === "function"){
+      const config = type === "calendar"
+        ? { calendar: { todayOnly: false, cardMode: null } }
+        : { subscription: {} };
+      window.MountBsportWidget({
+        parentElement: mountId,
+        companyId: 5566,
+        franchiseId: null,
+        dialogMode: 1,
+        widgetType: type,
+        showFab: false,
+        fullScreenPopup: false,
+        styles: undefined,
+        config: config
+      });
+    }
+  },[type, mountId]);
+  return <div id={mountId} style={{minHeight:h,background:"var(--white)",borderRadius:4,padding:8}}/>;
 }
 
 // ─── SECTION DIVIDER ───
