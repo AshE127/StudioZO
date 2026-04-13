@@ -69,44 +69,80 @@ function ImgBox({h=380,label="Studio Photography",ratio,style:sx={}}){
 }
 
 // ─── BSport Widget (Live) — Company ID: 5566 ───
-// Uses a ref + empty inner HTML marker so React does not interfere with the widget DOM after mount
-const BSPORT_IDS = { calendar: "bsport-widget-805329", subscription: "bsport-widget-12349" };
-function BsportWidget({type="calendar",h=550}){
-  const mountId = BSPORT_IDS[type] || `bsport-widget-${type}`;
-  const containerRef = useRef(null);
-  const mountedRef = useRef(false);
+// BSport bundles its own React internally which conflicts with host React.
+// Solution: render inside an iframe so BSport runs in its own isolated document.
+function BsportWidget({type="calendar",h=650}){
+  const iframeRef = useRef(null);
 
   useEffect(()=>{
-    if(mountedRef.current) return;
-    mountedRef.current = true;
+    const iframe = iframeRef.current;
+    if(!iframe) return;
 
-    const tryMount = (retry=0)=>{
-      if(retry > 50) return;
-      if(typeof window.MountBsportWidget !== "function" || !window.BsportWidget){
-        return setTimeout(()=>tryMount(retry+1), 100);
+    const mountId = type === "calendar" ? "bsport-widget-805329" : "bsport-widget-12349";
+    const config = type === "calendar"
+      ? `{ calendar: { todayOnly: false, cardMode: null } }`
+      : `{ subscription: {} }`;
+
+    const html = `<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<style>
+  body { margin:0; padding:0; font-family: Helvetica, Arial, sans-serif; background:#F5F2EE; }
+  #${mountId} { min-height: ${h}px; }
+</style>
+</head>
+<body>
+<div id="${mountId}"></div>
+<script id="insert-bsport-widget-cdn">!function (b, s, p, o, r, t) { typeof window.BsportWidget === "undefined" && !document.getElementById("bsport-widget-cdn") && !function () { m = b.createElement(s), m.id = "bsport-widget-cdn", m.src = p, b.getElementsByTagName("head")[0].appendChild(m) }() }(document, "script", "https://cdn.bsport.io/scripts/widget.js")<\/script>
+<script id="bsport-widget-mount">
+function MountBsportWidget(config, repeat=1) {
+  if (repeat > 50) { return }
+  if (!window.BsportWidget) {
+    return setTimeout(() => {
+      MountBsportWidget(config, repeat+1)
+    }, 100 * repeat || 1)
+  }
+  BsportWidget.mount(config)
+}
+<\/script>
+<script>
+MountBsportWidget({
+  "parentElement": "${mountId}",
+  "companyId": 5566,
+  "franchiseId": null,
+  "dialogMode": 1,
+  "widgetType": "${type}",
+  "showFab": false,
+  "fullScreenPopup": false,
+  "styles": undefined,
+  "config": ${config}
+})
+
+// Auto-resize iframe to fit content
+function reportHeight() {
+  const h = Math.max(document.body.scrollHeight, document.documentElement.scrollHeight);
+  parent.postMessage({ type: 'bsport-resize', height: h }, '*');
+}
+new MutationObserver(reportHeight).observe(document.body, { childList: true, subtree: true, attributes: true });
+setInterval(reportHeight, 1000);
+<\/script>
+</body>
+</html>`;
+
+    iframe.srcdoc = html;
+
+    const onMessage = (e) => {
+      if(e.data && e.data.type === 'bsport-resize' && iframeRef.current){
+        iframeRef.current.style.height = Math.max(e.data.height, h) + "px";
       }
-      const config = type === "calendar"
-        ? { calendar: { todayOnly: false, cardMode: null } }
-        : { subscription: {} };
-      try {
-        window.BsportWidget.mount({
-          parentElement: mountId,
-          companyId: 5566,
-          franchiseId: null,
-          dialogMode: 1,
-          widgetType: type,
-          showFab: false,
-          fullScreenPopup: false,
-          styles: undefined,
-          config: config
-        });
-      } catch(e){ console.error("BSport mount error:", e); }
     };
-    tryMount();
-  },[]);
+    window.addEventListener("message", onMessage);
+    return () => window.removeEventListener("message", onMessage);
+  },[type, h]);
 
-  // dangerouslySetInnerHTML with empty string tells React: "don't touch my children"
-  return <div ref={containerRef} id={mountId} style={{minHeight:h,background:"var(--white)",borderRadius:4,padding:8}} dangerouslySetInnerHTML={{__html:""}}/>;
+  return <iframe ref={iframeRef} style={{width:"100%",minHeight:h,border:"none",background:"var(--white)",borderRadius:4,display:"block"}} title={`BSport ${type}`}/>;
 }
 
 // ─── SECTION DIVIDER ───
