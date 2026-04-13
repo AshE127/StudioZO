@@ -73,13 +73,15 @@ function ImgBox({h=380,label="Studio Photography",ratio,style:sx={}}){
 // Solution: render inside an iframe so BSport runs in its own isolated document.
 function BsportWidget({type="calendar",h=650}){
   const iframeRef = useRef(null);
+  // Normalize type — map anything non-calendar to subscription
+  const widgetType = type === "calendar" ? "calendar" : "subscription";
 
   useEffect(()=>{
     const iframe = iframeRef.current;
     if(!iframe) return;
 
-    const mountId = type === "calendar" ? "bsport-widget-805329" : "bsport-widget-12349";
-    const config = type === "calendar"
+    const mountId = widgetType === "calendar" ? "bsport-widget-805329" : "bsport-widget-12349";
+    const config = widgetType === "calendar"
       ? `{ calendar: { todayOnly: false, cardMode: null } }`
       : `{ subscription: {} }`;
 
@@ -113,7 +115,7 @@ MountBsportWidget({
   "companyId": 5566,
   "franchiseId": null,
   "dialogMode": 1,
-  "widgetType": "${type}",
+  "widgetType": "${widgetType}",
   "showFab": false,
   "fullScreenPopup": false,
   "styles": undefined,
@@ -140,9 +142,9 @@ setInterval(reportHeight, 1000);
     };
     window.addEventListener("message", onMessage);
     return () => window.removeEventListener("message", onMessage);
-  },[type, h]);
+  },[widgetType, h]);
 
-  return <iframe ref={iframeRef} style={{width:"100%",minHeight:h,border:"none",background:"var(--white)",borderRadius:4,display:"block"}} title={`BSport ${type}`}/>;
+  return <iframe ref={iframeRef} style={{width:"100%",minHeight:h,border:"none",background:"var(--white)",borderRadius:4,display:"block"}} title={`BSport ${widgetType}`}/>;
 }
 
 // ─── SECTION DIVIDER ───
