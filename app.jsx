@@ -69,30 +69,44 @@ function ImgBox({h=380,label="Studio Photography",ratio,style:sx={}}){
 }
 
 // ─── BSport Widget (Live) — Company ID: 5566 ───
-// Calendar: responsive display (card on desktop, list on mobile)
-// Subscription: membership purchases
+// Uses a ref + empty inner HTML marker so React does not interfere with the widget DOM after mount
 const BSPORT_IDS = { calendar: "bsport-widget-805329", subscription: "bsport-widget-12349" };
 function BsportWidget({type="calendar",h=550}){
   const mountId = BSPORT_IDS[type] || `bsport-widget-${type}`;
+  const containerRef = useRef(null);
+  const mountedRef = useRef(false);
+
   useEffect(()=>{
-    if(typeof window.MountBsportWidget === "function"){
+    if(mountedRef.current) return;
+    mountedRef.current = true;
+
+    const tryMount = (retry=0)=>{
+      if(retry > 50) return;
+      if(typeof window.MountBsportWidget !== "function" || !window.BsportWidget){
+        return setTimeout(()=>tryMount(retry+1), 100);
+      }
       const config = type === "calendar"
         ? { calendar: { todayOnly: false, cardMode: null } }
         : { subscription: {} };
-      window.MountBsportWidget({
-        parentElement: mountId,
-        companyId: 5566,
-        franchiseId: null,
-        dialogMode: 1,
-        widgetType: type,
-        showFab: false,
-        fullScreenPopup: false,
-        styles: undefined,
-        config: config
-      });
-    }
-  },[type, mountId]);
-  return <div id={mountId} style={{minHeight:h,background:"var(--white)",borderRadius:4,padding:8}}/>;
+      try {
+        window.BsportWidget.mount({
+          parentElement: mountId,
+          companyId: 5566,
+          franchiseId: null,
+          dialogMode: 1,
+          widgetType: type,
+          showFab: false,
+          fullScreenPopup: false,
+          styles: undefined,
+          config: config
+        });
+      } catch(e){ console.error("BSport mount error:", e); }
+    };
+    tryMount();
+  },[]);
+
+  // dangerouslySetInnerHTML with empty string tells React: "don't touch my children"
+  return <div ref={containerRef} id={mountId} style={{minHeight:h,background:"var(--white)",borderRadius:4,padding:8}} dangerouslySetInnerHTML={{__html:""}}/>;
 }
 
 // ─── SECTION DIVIDER ───
