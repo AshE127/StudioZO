@@ -1,47 +1,47 @@
-# Studio Zo — Website
+# Studio Zo — Northern Virginia's First Infrared Heated Mat Pilates Studio
 
-**Sweat. Sculpt. Align.**
+Live at: **https://ashe127.github.io/StudioZO/**
 
-A boutique heated mat Pilates studio website built with React (JSX + Babel standalone).
+## What's New in This Build
+
+- **Press banner** at top: "As seen on Fox 5 DC & ABC 7 Good Morning Washington" → links to Fox 5 video
+- **Headline:** "Northern Virginia's First Infrared Heated Mat Pilates Studio with Childcare"
+- **Primary CTA site-wide:** "Join Founding Membership" → BSport founding link
+- **Founding pricing visible everywhere:** $179 (code: LORTONVA2026) + $219 (code: LORTONKIDSVA2026)
+- **Intro popup:** Shows both founding offers with codes on first page load
+- **Class names updated:** Zo Sculpt, Zo Flow, Zo Method, Zo Restore
+- **"Zo Kids"** replaces "Childcare" everywhere
+- **About page subsections** with hamburger menu jump links: Our Story, The Method, Founder, What Sets Us Apart
+- **Founder section** uses `assets/Founder pic .JPG`
+- **Eventbrite embed** on Events page (org 120805755958)
+- **"What to Expect" section** rewritten with full new copy
+- **Marquee text** darkened for readability
 
 ## Pages
-1. **Home** — Landing page with hero, class types, testimonials, childcare teaser
-2. **Memberships & Pricing** — Tiers, drop-ins, class packs, BSport purchase widget
-3. **Schedule & Booking** — BSport calendar widget, new client info
-4. **About Studio Zo** — Story, differentiators, instructor team
-5. **Events & Community** — Upcoming/past events, mailing list
-6. **Childcare** — Dedicated page for kids' room (key differentiator)
+1. Home — founding membership focus, branded mid-page tiers, BSport widget at bottom
+2. Memberships & Pricing — founding tiers up top, drop-ins last
+3. Schedule & Booking — BSport calendar + 4 Zo class types + What to Expect
+4. About — multi-section with anchor jumps for hamburger menu
+5. Events — Eventbrite embed + past partners gallery
+6. Zo Kids — underplayed, dedicated page
 
 ## Tech Stack
-- React 18 (via CDN)
-- Babel Standalone (JSX transpilation — no build step)
-- Playfair Display + Urbanist (Google Fonts)
-- BSport widget placeholders (ready for embed codes)
+- React 18 (CDN)
+- Babel Standalone (no build step)
+- BSport widgets via iframe isolation (resolves React conflict)
+- Eventbrite iframe embed
+- Playfair Display + Urbanist fonts
 
-## Deployment (GitHub Pages)
-1. Push this repo to GitHub
-2. Go to Settings → Pages → Source: Deploy from branch → `main` / `root`
-3. Site will be live at `https://yourusername.github.io/repo-name/`
+## Asset Notes
+**Important:** Make sure `assets/Founder pic .JPG` (note the space) exists in your repo for the founder section to display.
 
-## BSport Integration
-Replace the placeholder widgets in `app.jsx` by searching for `BsportWidget` and replacing with your actual BSport embed code from Settings → Widget in your BSport dashboard.
+## BSport Setup (already configured)
+- Company ID: 5566
+- Calendar widget ID: 805329
+- Subscription widget ID: 12349
+- Founding Membership URL: https://backoffice.bsport.io/m/Studio%20Zo/5566/subscription/?tabSelected=5&index=5
 
-## Brand Colors
-| Color | Hex | Usage |
-|-------|-----|-------|
-| Soft Ivory | #F5F2EE | Primary background |
-| Rich Black | #111111 | Text |
-| Soft Nude Beige | #C97C5D | Accent color |
-| Dark Forest Green | #0C1910 | Secondary |
-| Pure White | #FFFFFF | Cards, sections |
-
-## Logo Assets
-All logo variations are in `/assets/`:
-- `logo-horizontal-black.png` — Nav logo (dark text, transparent bg)
-- `logo-horizontal-white.png` — For dark backgrounds
-- `logo-monogram-black.png` — SZ circle mark (dark)
-- `logo-monogram-white.png` — SZ circle mark (light)
-- `logo-full-black.png` — Full logo with tagline (dark)
-- `logo-full-white.png` — Full logo with tagline (light)
-- `logo-stacked-black.png` — Stacked layout (dark)
-- `logo-stacked-white.png` — Stacked layout (light)
+## To Deploy
+1. Replace `app.jsx` and `index.html` in your GitHub repo
+2. Commit + push
+3. Hard refresh browser (Ctrl+Shift+R / Cmd+Shift+R)
