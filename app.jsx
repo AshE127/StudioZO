@@ -199,10 +199,8 @@ function Home({go}){
   const nav=id=>{go(id);window.scrollTo({top:0})};
   return<div className="pi">
     <section style={{minHeight:"86vh",display:"flex",alignItems:"center",justifyContent:"center",position:"relative",overflow:"hidden",background:"var(--ivory)",padding:"60px 24px"}}>
-      <ImgBox h="100%" label="Hero Studio Image" style={{position:"absolute",inset:0,width:"100%",height:"100%",borderRadius:0}}/>
-      <div style={{position:"absolute",inset:0,background:"linear-gradient(180deg,rgba(245,242,238,.55) 0%,rgba(245,242,238,.4) 40%,rgba(245,242,238,.7) 100%)"}}/>
+      <div style={{position:"absolute",inset:0,background:"var(--ivory)"}}/>
       <div style={{position:"relative",zIndex:1,textAlign:"center",maxWidth:820}}>
-        <Rv><img src={LOGO_MONO} alt="SZ" style={{height:60,margin:"0 auto 22px"}}/></Rv>
         <Rv delay={.1}><Eye>Founding Memberships Now Open · Limited Spots</Eye></Rv>
         <Rv delay={.15}><h1 style={{fontFamily:"var(--serif)",fontSize:"clamp(2.2rem,5.5vw,4rem)",fontWeight:500,lineHeight:1.1,color:"var(--black)",marginBottom:10}}>Northern Virginia's First<br/><span style={{fontStyle:"italic",color:"var(--nude)"}}>Infrared Heated</span> Mat Pilates Studio<br/><span style={{fontSize:"clamp(1.4rem,3.5vw,2.4rem)",fontWeight:400}}>with Childcare</span></h1></Rv>
         <Rv delay={.2}><P style={{maxWidth:520,margin:"0 auto 32px",fontSize:".95rem",fontStyle:"italic"}}>Finally, a workout you don't have to plan childcare around.</P></Rv>
