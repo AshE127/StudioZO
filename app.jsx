@@ -174,7 +174,10 @@ function Ftr({go}){
         </div>
       </div>
       <div style={{borderTop:"1px solid rgba(255,255,255,.08)",paddingTop:18,display:"flex",justifyContent:"space-between",alignItems:"center",flexWrap:"wrap",gap:12}}>
-        <p style={{fontSize:".7rem",color:"rgba(255,255,255,.3)"}}>© 2026 Studio Zo. All rights reserved.</p>
+        <div style={{display:"flex",alignItems:"center",gap:16,flexWrap:"wrap"}}>
+          <p style={{fontSize:".7rem",color:"rgba(255,255,255,.3)"}}>© 2026 Studio Zo. All rights reserved.</p>
+          <button onClick={()=>nav("privacy")} style={{background:"none",border:"none",fontSize:".65rem",color:"rgba(255,255,255,.35)",fontFamily:"var(--sans)",textDecoration:"underline",padding:0}}>Privacy Policy</button>
+        </div>
         <p style={{fontSize:".65rem",color:"rgba(255,255,255,.3)",letterSpacing:".1em"}}>SWEAT · SCULPT · ALIGN</p>
       </div>
     </div>
@@ -460,6 +463,41 @@ function Contact(){
   </div>
 }
 
+// ═══════════ PRIVACY POLICY ═══════════
+function Privacy(){
+  const sections=[
+    {t:"Information We Collect",body:"We may collect the following information: your full name, email address, phone number, membership or event interest, and any additional information you choose to provide."},
+    {t:"How We Use Your Information",body:"We use your information to contact you about Studio Zo memberships, classes, events, promotions, and studio updates; respond to your questions or inquiries; process registrations, bookings, or purchases; and share important updates related to Studio Zo."},
+    {t:"We Do Not Sell Your Information",body:"Studio Zo does not sell, rent, or resell your personal information to third parties."},
+    {t:"Marketing Communications",body:"By submitting your information, you agree that Studio Zo may contact you by email, phone, or text message regarding studio updates, events, memberships, and promotional offers. You may opt out at any time by replying \"STOP\" to text messages or unsubscribing from emails."},
+    {t:"Third-Party Platforms",body:"We may collect information through platforms such as Facebook, Instagram, Eventbrite, BSport, Stripe, or other booking and payment tools. Those platforms may also have their own privacy policies."},
+    {t:"Data Protection",body:"We take reasonable steps to protect your personal information and only use it for legitimate Studio Zo business purposes."},
+    {t:"Contact Us",body:"For questions about this Privacy Policy or to request removal of your information, contact us at Info@studiozopilates.com."},
+  ];
+  return<div className="pi">
+    <section style={{padding:"80px 24px 60px",textAlign:"center",background:"var(--ivory)"}}>
+      <Rv><Eye>Legal</Eye><H2>Privacy Policy</H2><P style={{maxWidth:520,margin:"14px auto 0"}}>Studio Zo Pilates & Wellness Club respects your privacy. This policy explains how we collect, use, and protect your information.</P></Rv>
+    </section>
+    <section style={{padding:"0 24px 80px",background:"var(--ivory)"}}>
+      <div style={{maxWidth:700,margin:"0 auto"}}>
+        {sections.map((s,i)=><Rv key={i} delay={i*.04}>
+          <div style={{marginBottom:32}}>
+            <h3 style={{fontFamily:"var(--sans)",fontSize:".9rem",fontWeight:700,color:"var(--black)",marginBottom:10,letterSpacing:".03em"}}>{s.t}</h3>
+            <P style={{fontSize:".88rem"}}>{s.body}</P>
+          </div>
+        </Rv>)}
+        <Rv delay={.3}>
+          <div style={{borderTop:"1px solid var(--lg)",paddingTop:24,marginTop:16}}>
+            <P style={{fontSize:".78rem",color:"var(--gray)"}}>Studio Zo Pilates & Wellness Club</P>
+            <P style={{fontSize:".78rem",color:"var(--gray)"}}>Lorton, Virginia</P>
+            <P style={{fontSize:".78rem",color:"var(--gray)",marginTop:8}}>Last updated: May 2026</P>
+          </div>
+        </Rv>
+      </div>
+    </section>
+  </div>
+}
+
 // ═══════════ APP with Hash Routing ═══════════
 function App(){
   const getPage=()=>(window.location.hash.replace("#","") || "home");
@@ -490,6 +528,7 @@ function App(){
       page==="events"?<Events/>:
       page==="zokids"?<ZoKids/>:
       page==="contact"?<Contact/>:
+      page==="privacy"?<Privacy/>:
       <Home go={go}/>
     }</main>
     <Ftr go={go}/>
