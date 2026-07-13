@@ -302,7 +302,7 @@ function About(){
     {q:"I'm new to Pilates. Which class should I take?",a:"We recommend starting with ZO Foundations, our beginner-friendly class designed to teach proper form, alignment, breathing, and foundational Pilates movements."},
     {q:"How do I book a class?",a:"Classes can be booked through your BSport account or directly through the Studio Zo website."},
     {q:"What is your cancellation policy?",a:"Classes must be canceled at least 12 hours before the scheduled start time. Late cancellations incur a $15 fee, and no-shows incur a $20 fee. For class packages, a late cancellation or no-show results in one class being deducted."},
-    {q:"Do you offer childcare?",a:"Yes! Kids Club is available during select class times for children ages 1–12. Reservations must be made at least 12 hours before class, parents must remain on-site, and if no children are registered, Studio Zo reserves the right to cancel that Kids Club session."},
+    {q:"Do you offer childcare?",a:"Yes! Kids Club is available during select class times for children ages 6 months to 11 years old. Reservations must be made at least 12 hours before class, parents must remain on-site, and if no children are registered, Studio Zo reserves the right to cancel that Kids Club session."},
     {q:"Do you have showers?",a:"No, we do not have showers. We do have a restroom, changing area, chilled eucalyptus towels after class, and retail items such as water, grip socks, and mat towels available for purchase."},
     {q:"What if I'm running late?",a:"Please arrive on time. For safety and to minimize disruptions, late arrivals may not be admitted once class has begun."},
     {q:"Where do I park?",a:"Free parking is available in the Gunston Plaza shopping center."},
