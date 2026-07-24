@@ -74,7 +74,7 @@ function BsportWidget({type:t="calendar",h=650}){
 function PB(){return<a href={PRESS_LINK} target="_blank" rel="noopener" style={{display:"block",background:"var(--black)",color:"var(--ivory)",padding:"8px 16px",textAlign:"center",position:"relative",zIndex:101}}><span style={{fontFamily:"var(--sans)",fontSize:".65rem",fontWeight:500,letterSpacing:".18em",textTransform:"uppercase",display:"inline-flex",alignItems:"center",gap:10}}><span style={{color:"var(--nude)"}}>★</span> As seen on Fox 5 DC <span style={{opacity:.5}}>·</span> ABC 7 Good Morning Washington <Ext/></span></a>}
 
 // NAV
-const PAGES=[{id:"home",label:"Home"},{id:"memberships",label:"Pricing"},{id:"schedule",label:"Schedule"},{id:"about",label:"About",sub:[{id:"story",label:"Our Story"},{id:"method",label:"Find Your Flow"},{id:"founder",label:"Founder"},{id:"differentiators",label:"What Makes Us Different"},{id:"faq",label:"FAQ"},{id:"policies",label:"Policies"}]},{id:"events",label:"Events"},{id:"zokids",label:"Zo Kids"},{id:"contact",label:"Contact"}];
+const PAGES=[{id:"home",label:"Home"},{id:"memberships",label:"Pricing"},{id:"schedule",label:"Schedule"},{id:"about",label:"About",sub:[{id:"story",label:"Our Story"},{id:"method",label:"Find Your Flow"},{id:"founder",label:"Founder"},{id:"differentiators",label:"What Makes Us Different"},{id:"faq",label:"FAQ"}]},{id:"events",label:"Events"},{id:"zokids",label:"Zo Kids"},{id:"contact",label:"Contact"}];
 
 function Nav({page:pg,go}){
   const[sc,setSc]=useState(false);const[op,setOp]=useState(false);const[ab,setAb]=useState(false);
@@ -111,7 +111,7 @@ function Popup({onClose:cl}){
     <div onClick={e=>e.stopPropagation()} style={{position:"relative",background:"var(--ivory)",maxWidth:520,width:"100%",padding:"42px 32px 32px",textAlign:"center",borderRadius:6,animation:"fadeUp .4s ease-out",border:"1px solid var(--lg)"}}>
       <button onClick={cl} style={{position:"absolute",top:14,right:14,background:"none",border:"none",color:"var(--gray)",fontSize:"1.3rem",padding:6}}>✕</button>
       <img src={LOGO_MONO} alt="SZ" style={{height:54,margin:"0 auto 16px"}}/>
-      <Eye>Opening July 13 · Founding Membership</Eye>
+      <Eye>Founding Membership · Limited Spots</Eye>
       <H2 sz="clamp(1.5rem,3.8vw,2rem)" style={{marginBottom:12}}>Lock in <span style={{fontStyle:"italic",color:"var(--nude)"}}>founding</span> pricing forever</H2>
       <P style={{maxWidth:380,margin:"0 auto 24px",fontSize:".85rem"}}>Your rate will never increase. Plus exclusive perks on Studio Zo events.</P>
       <div style={{display:"grid",gridTemplateColumns:"1fr",gap:10,marginBottom:18}}>
@@ -134,7 +134,6 @@ function Popup({onClose:cl}){
         </div>
       </div>
       <Btn nude full href={BSPORT_URL} onClick={cl}>Claim Your Spot <Arr/></Btn>
-      <P style={{fontSize:".7rem",marginTop:14,color:"var(--gray)"}}>First month today · No charges again until after we open July 13</P>
       <button onClick={cl} style={{background:"none",border:"none",marginTop:8,fontSize:".7rem",color:"var(--gray)",fontFamily:"var(--sans)",textDecoration:"underline"}}>Browse the site first</button>
     </div>
   </div>
@@ -177,7 +176,6 @@ function Ftr({go}){
         <div style={{display:"flex",alignItems:"center",gap:16,flexWrap:"wrap"}}>
           <p style={{fontSize:".7rem",color:"rgba(255,255,255,.3)"}}>© 2026 Studio Zo. All rights reserved.</p>
           <button onClick={()=>nav("privacy")} style={{background:"none",border:"none",fontSize:".65rem",color:"rgba(255,255,255,.35)",fontFamily:"var(--sans)",textDecoration:"underline",padding:0}}>Privacy Policy</button>
-          <button onClick={()=>nav("policies")} style={{background:"none",border:"none",fontSize:".65rem",color:"rgba(255,255,255,.35)",fontFamily:"var(--sans)",textDecoration:"underline",padding:0}}>Studio Policies</button>
         </div>
         <p style={{fontSize:".65rem",color:"rgba(255,255,255,.3)",letterSpacing:".1em"}}>SWEAT · SCULPT · ALIGN</p>
       </div>
@@ -205,7 +203,7 @@ function Home({go}){
     <section style={{minHeight:"86vh",display:"flex",alignItems:"center",justifyContent:"center",position:"relative",overflow:"hidden",background:"var(--ivory)",padding:"60px 24px"}}>
       <div style={{position:"absolute",inset:0,background:"var(--ivory)"}}/>
       <div style={{position:"relative",zIndex:1,textAlign:"center",maxWidth:820}}>
-        <Rv delay={.1}><Eye>Opening July 13 · Founding Memberships Now Open</Eye></Rv>
+        <Rv delay={.1}><Eye>Founding Memberships Now Open · Limited Spots</Eye></Rv>
         <Rv delay={.15}><h1 style={{fontFamily:"var(--serif)",fontSize:"clamp(2.2rem,5.5vw,4rem)",fontWeight:500,lineHeight:1.1,color:"var(--black)",marginBottom:10}}>Northern Virginia's First<br/><span style={{fontStyle:"italic",color:"var(--nude)"}}>Infrared Heated</span> Mat Pilates Studio<br/><span style={{fontSize:"clamp(1.4rem,3.5vw,2.4rem)",fontWeight:400}}>with Childcare</span></h1></Rv>
         <Rv delay={.2}><P style={{maxWidth:520,margin:"0 auto 32px",fontSize:".95rem",fontStyle:"italic"}}>Finally, a workout you don't have to plan childcare around.</P></Rv>
         <Rv delay={.3}><div className="ms" style={{display:"flex",gap:12,justifyContent:"center",flexWrap:"wrap",marginBottom:14}}><Btn nude href={BSPORT_URL} style={{padding:"17px 38px",fontSize:".75rem",animation:"pulseN 2.5s ease-in-out infinite"}}>Claim Founding Membership <Arr/></Btn><Btn outline onClick={()=>nav("memberships")}>View Pricing</Btn></div></Rv>
@@ -220,7 +218,6 @@ function Home({go}){
         <Rv delay={.05}><FTier name="Unlimited" sub="Unlimited Classes" price="179" orig="220" code="LORTONVA2026"/></Rv>
         <Rv delay={.15}><FTier name="Unlimited + Zo Kids" sub="Unlimited + Childcare" price="219" orig="270" code="LORTONKIDSVA2026" pop/></Rv>
       </div>
-      <Rv delay={.3}><p style={{textAlign:"center",fontSize:".78rem",color:"var(--gray)",marginTop:22,fontStyle:"italic",maxWidth:640,margin:"22px auto 0"}}>You'll pay your first month today to lock in your rate. You won't be charged again until after we officially open on July 13.</p></Rv>
     </div></section>
 
     <section style={{padding:"90px 24px",background:"var(--white)"}}><div style={{maxWidth:1100,margin:"0 auto"}}>
@@ -251,14 +248,13 @@ function Memberships(){
     <section style={{padding:"30px 24px 60px",background:"var(--ivory)"}}><div style={{maxWidth:1100,margin:"0 auto"}}>
       <Rv><p style={{fontSize:".66rem",fontWeight:700,letterSpacing:".25em",color:"var(--nude)",textAlign:"center",marginBottom:28}}>★ FOUNDING MEMBERSHIPS — LIMITED SPOTS ★</p></Rv>
       <div className="mc" style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:20,maxWidth:880,margin:"0 auto"}}><Rv delay={.05}><FTier name="Unlimited" sub="Unlimited Classes" price="179" orig="220" code="LORTONVA2026"/></Rv><Rv delay={.15}><FTier name="Unlimited + Zo Kids" sub="Unlimited + Childcare" price="219" orig="270" code="LORTONKIDSVA2026" pop/></Rv></div>
-      <Rv delay={.3}><p style={{textAlign:"center",fontSize:".78rem",color:"var(--gray)",marginTop:22,fontStyle:"italic",maxWidth:640,margin:"22px auto 0"}}>You'll pay your first month today to lock in your rate. You won't be charged again until after we officially open on July 13.</p></Rv>
     </div></section>
 
     <section style={{padding:"60px 24px",background:"var(--white)",borderTop:"1px solid var(--lg)"}}><div style={{maxWidth:880,margin:"0 auto"}}><Rv><div style={{textAlign:"center",marginBottom:36}}><Eye>Other Memberships</Eye><H2 sz="clamp(1.5rem,3vw,2rem)">Flexible options</H2></div></Rv>
       <div className="mc" style={{display:"grid",gridTemplateColumns:"1fr 1fr 1fr",gap:16}}>{[
         {n:"8 Classes / Month",p:"$149",per:"/month",d:"Stay consistent with a structured routine—without committing to unlimited access. Ideal for 2 classes per week."},
-        {n:"5-Class Pack",p:"$125",per:"",d:"Move on your schedule with flexible access to Studio Zo classes. Perfect for getting started or supplementing your routine."},
-        {n:"10-Class Pack",p:"$210",per:"",d:"Designed for consistency, with a lower cost per class. A flexible option for those building a regular practice."},
+        {n:"5-Class Pack",p:"$165",per:"",d:"Move on your schedule with flexible access to Studio Zo classes. Perfect for getting started or supplementing your routine."},
+        {n:"10-Class Pack",p:"$300",per:"",d:"Designed for consistency, with a lower cost per class. A flexible option for those building a regular practice."},
       ].map((m,i)=><Rv key={i} delay={i*.08}><div style={{background:"var(--ivory)",borderRadius:6,padding:"28px 22px",border:"1px solid var(--lg)",height:"100%"}}><p style={{fontSize:".62rem",fontWeight:700,letterSpacing:".22em",color:"var(--nude)",marginBottom:10}}>{m.n.toUpperCase()}</p><p style={{marginBottom:10}}><span style={{fontFamily:"var(--serif)",fontSize:"2rem",fontWeight:600}}>{m.p}</span><span style={{fontSize:".78rem",color:"var(--gray)"}}>{m.per}</span></p><P style={{fontSize:".82rem"}}>{m.d}</P></div></Rv>)}</div>
     </div></section>
 
@@ -278,13 +274,13 @@ function Memberships(){
 function Schedule(){
   return<div className="pi">
     <section style={{padding:"80px 24px 40px",textAlign:"center",background:"var(--ivory)"}}><Rv><Eye>Schedule & Booking</Eye><H2>Find your <span style={{fontStyle:"italic",color:"var(--nude)"}}>class</span></H2><P style={{maxWidth:520,margin:"14px auto 0"}}>Browse our weekly schedule and book with ease. Changes or cancellations can be made up to 12 hours in advance. Late cancellations or no-shows may result in a fee or class deduction.</P></Rv></section>
-    <section style={{padding:"0 24px 30px",background:"var(--ivory)"}}><div style={{maxWidth:760,margin:"0 auto",display:"flex",flexWrap:"wrap",gap:18,justifyContent:"center"}}>{[{n:"ZO SCULPT",d:"Signature heated Pilates"},{n:"ZO FLOW",d:"Modern sculpt flow"},{n:"ZO METHOD",d:"Classical Pilates"},{n:"ZO RESTORE",d:"Stretch + recovery"},{n:"ZO FOUNDATIONS",d:"Beginner-friendly"}].map((c,i)=><div key={i} style={{display:"flex",flexDirection:"column",alignItems:"center",gap:4,padding:"10px 16px"}}><span style={{fontSize:".68rem",fontWeight:700,letterSpacing:".15em",color:"var(--nude)"}}>{c.n}</span><span style={{fontSize:".7rem",color:"var(--gray)",fontStyle:"italic"}}>{c.d}</span></div>)}</div></section>
+    <section style={{padding:"0 24px 30px",background:"var(--ivory)"}}><div style={{maxWidth:760,margin:"0 auto",display:"flex",flexWrap:"wrap",gap:18,justifyContent:"center"}}>{[{n:"ZO SCULPT",d:"Signature heated Pilates"},{n:"ZO FLOW",d:"Modern sculpt flow"},{n:"ZO METHOD",d:"Classical Pilates"},{n:"ZO RESTORE",d:"Stretch + recovery"}].map((c,i)=><div key={i} style={{display:"flex",flexDirection:"column",alignItems:"center",gap:4,padding:"10px 16px"}}><span style={{fontSize:".68rem",fontWeight:700,letterSpacing:".15em",color:"var(--nude)"}}>{c.n}</span><span style={{fontSize:".7rem",color:"var(--gray)",fontStyle:"italic"}}>{c.d}</span></div>)}</div></section>
     <section style={{padding:"0 24px 80px",background:"var(--ivory)"}}><div style={{maxWidth:980,margin:"0 auto"}}><BsportWidget type="calendar" h={650}/></div></section>
 
     <section style={{padding:"60px 24px 80px",background:"var(--white)",borderTop:"1px solid var(--lg)"}}><div style={{maxWidth:680,margin:"0 auto"}}>
       <Rv><div style={{textAlign:"center",marginBottom:10}}><Eye>New Here?</Eye><H2 sz="clamp(1.5rem,3vw,2rem)">What to expect</H2></div></Rv>
       <Rv delay={.05}><p style={{textAlign:"center",fontSize:".85rem",color:"var(--gray)",fontStyle:"italic",marginBottom:36}}>Everything you need to know before your first class.</p></Rv>
-      {[{n:"01",t:"ARRIVE EARLY",d:"Please arrive 10–15 minutes before your first class so we can check you in, show you around the studio, and answer any questions before class begins."},{n:"02",t:"WHAT TO BRING",d:"Premium STAKT mats are provided for every class. A full-length mat towel is required for sanitation purposes — bring your own or purchase one at the studio. Grip socks are optional but recommended for added comfort and stability."},{n:"03",t:"HEATED EXPERIENCE",d:"Most of our signature classes are taught in our infrared heated studio. Please check the class description when booking, as some specialty classes may not be heated. Stay hydrated — premium bottled water is available for purchase in-studio."},{n:"04",t:"ALL LEVELS WELCOME",d:"Whether you're new to Pilates or experienced, our classes are designed to meet you where you are. New to Pilates? Start with ZO Foundations — our beginner-friendly class focused on proper form, alignment, and breathing."}].map((s,i)=><Rv key={i} delay={(i+1)*.08}><div style={{display:"flex",gap:18,padding:"22px 0",borderBottom:"1px solid var(--lg)"}}><span style={{fontFamily:"var(--serif)",fontSize:"1.6rem",fontWeight:500,color:"var(--nude)",minWidth:40}}>{s.n}</span><div><h4 style={{fontSize:".85rem",fontWeight:700,color:"var(--black)",marginBottom:6,letterSpacing:".08em"}}>{s.t}</h4><P style={{fontSize:".85rem"}}>{s.d}</P></div></div></Rv>)}
+      {[{n:"01",t:"ARRIVE EARLY",d:"Please arrive 10 minutes before class to check in and settle in. Doors close 2 minutes after class begins to maintain the flow of the experience."},{n:"02",t:"WHAT TO BRING",d:"Grip socks are required for all classes. Please bring your own mat, or rent a premium STAKT mat in-studio. Towels are optional for added comfort."},{n:"03",t:"HEATED EXPERIENCE",d:"Our infrared heated studio is designed to enhance your workout through deeper movement and increased intensity. Stay hydrated — premium bottled water is available for purchase in-studio."},{n:"04",t:"ALL LEVELS WELCOME",d:"Whether you're new to Pilates or experienced, our classes are designed to meet you where you are, with guided instruction and thoughtful modifications throughout."}].map((s,i)=><Rv key={i} delay={(i+1)*.08}><div style={{display:"flex",gap:18,padding:"22px 0",borderBottom:"1px solid var(--lg)"}}><span style={{fontFamily:"var(--serif)",fontSize:"1.6rem",fontWeight:500,color:"var(--nude)",minWidth:40}}>{s.n}</span><div><h4 style={{fontSize:".85rem",fontWeight:700,color:"var(--black)",marginBottom:6,letterSpacing:".08em"}}>{s.t}</h4><P style={{fontSize:".85rem"}}>{s.d}</P></div></div></Rv>)}
     </div></section>
   </div>
 }
@@ -293,21 +289,14 @@ function Schedule(){
 function About(){
   const[oq,setOq]=useState(null);
   const faqs=[
-    {q:"Do I need to bring my own mat?",a:"No! We provide premium STAKT mats for every class. Just bring yourself and get ready to move."},
-    {q:"Are mat towels required?",a:"Yes. For sanitation purposes, full-length mat towels are required for every class. You may bring your own or purchase one at the studio."},
-    {q:"Do I need grip socks?",a:"Grip socks are optional for adults but highly encouraged, especially if you're new to Pilates or taking a heated class. Grip socks are required for all children attending Kids Club."},
-    {q:"What should I bring to class?",a:"We recommend bringing a full-length mat towel, a water bottle (or purchasing one at the studio), comfortable workout attire, and grip socks if you prefer them."},
-    {q:"How early should I arrive?",a:"Please arrive 10–15 minutes before your first class so we can check you in, show you around the studio, and answer any questions before class begins."},
-    {q:"Is the studio heated?",a:"Yes! Most of our signature classes are taught in our heated infrared studio. Please check the class description when booking, as some specialty classes may not be heated."},
-    {q:"I'm new to Pilates. Which class should I take?",a:"We recommend starting with ZO Foundations, our beginner-friendly class designed to teach proper form, alignment, breathing, and foundational Pilates movements."},
-    {q:"How do I book a class?",a:"Classes can be booked through your BSport account or directly through the Studio Zo website."},
-    {q:"What is your cancellation policy?",a:"Classes must be canceled at least 12 hours before the scheduled start time. Late cancellations incur a $15 fee, and no-shows incur a $20 fee. For class packages, a late cancellation or no-show results in one class being deducted."},
-    {q:"Do you offer childcare?",a:"Yes! Kids Club is available during select class times for children ages 6 months to 11 years old. Reservations must be made at least 12 hours before class, parents must remain on-site, and if no children are registered, Studio Zo reserves the right to cancel that Kids Club session."},
-    {q:"Do you have showers?",a:"No, we do not have showers. We do have a restroom, changing area, chilled eucalyptus towels after class, and retail items such as water, grip socks, and mat towels available for purchase."},
-    {q:"What if I'm running late?",a:"Please arrive on time. For safety and to minimize disruptions, late arrivals may not be admitted once class has begun."},
-    {q:"Where do I park?",a:"Free parking is available in the Gunston Plaza shopping center."},
-    {q:"Can I take class if I'm pregnant?",a:"Please consult with your healthcare provider before participating in any fitness program. If you're pregnant, we recommend contacting the studio before booking so we can help you choose the most appropriate class."},
-    {q:"What amenities does Studio Zo offer?",a:"Studio Zo offers premium STAKT mats, chilled eucalyptus towels after class, Kids Club during select classes, retail including grip socks, mat towels, and beverages, complimentary parking, and a heated infrared studio for most signature classes."},
+    {q:"What should I wear to class?",a:"Comfortable, form-fitting athletic wear. Grip socks are required for all classes."},
+    {q:"Do I need to bring my own mat?",a:"We recommend bringing your own mat, but premium STAKT mats are available to rent in-studio."},
+    {q:"Is Studio Zo beginner-friendly?",a:"Absolutely. All classes are designed for every level, with guided instruction and modifications throughout."},
+    {q:"What is infrared heat?",a:"Infrared heat warms your body from within rather than heating the air around you. It supports deeper movement, improved recovery, and a more effective workout — without overwhelming heat."},
+    {q:"How does Zo Kids work?",a:"Reserve your child's spot through BSport when booking your class. It's included with the Unlimited + Zo Kids membership, or $10 per drop-in."},
+    {q:"What's your cancellation policy?",a:"Changes or cancellations can be made up to 12 hours before class. Late cancellations or no-shows may result in a fee or class deduction."},
+    {q:"Where is Studio Zo located?",a:"7708 Gunston Plaza, Lorton, VA 22079."},
+    {q:"When does Studio Zo open?",a:"Founding memberships are available now. Follow us on social media for updates on our official opening date."},
   ];
   return<div className="pi">
     <section id="story" style={{padding:"80px 24px 60px",textAlign:"center",background:"var(--ivory)"}}><Rv><Eye>Our Story</Eye><H2>About <span style={{fontStyle:"italic",color:"var(--nude)"}}>Studio Zo</span></H2><P style={{maxWidth:520,margin:"14px auto 0"}}>More than a studio — a sanctuary for movement, community, and transformation.</P></Rv></section>
@@ -319,7 +308,6 @@ function About(){
         {n:"Zo Flow",d:"A dynamic, continuous flow combining Pilates with seamless transitions to build strength and elevate your heart rate."},
         {n:"Zo Method",d:"Classical Pilates rooted in precision and control. Foundational, focused, and form-driven."},
         {n:"Zo Restore",d:"A slower, restorative practice designed to stretch, release, and balance the intensity of your other classes."},
-        {n:"Zo Foundations",d:"Perfect for beginners or anyone looking to build confidence in Pilates. A slower-paced class focused on proper form, alignment, breathing, and foundational movements."},
       ].map((c,i)=><Rv key={i} delay={i*.08}><div style={{padding:"28px 24px",background:"var(--ivory)",borderLeft:"3px solid var(--nude)",borderRadius:"0 6px 6px 0"}}><p style={{fontSize:".62rem",fontWeight:700,letterSpacing:".22em",color:"var(--nude)",marginBottom:8}}>{c.n.toUpperCase()}</p><H2 sz="clamp(1.2rem,2.5vw,1.5rem)" style={{marginBottom:10}}>{c.n}</H2><P style={{fontSize:".87rem"}}>{c.d}</P></div></Rv>)}</div>
     </div></section>
 
@@ -340,59 +328,22 @@ function About(){
     <section id="faq" style={{padding:"80px 24px",background:"var(--ivory)",borderTop:"1px solid var(--lg)"}}><div style={{maxWidth:700,margin:"0 auto"}}><Rv><div style={{textAlign:"center",marginBottom:40}}><Eye>FAQ</Eye><H2>Common <span style={{fontStyle:"italic",color:"var(--nude)"}}>questions</span></H2></div></Rv>
       {faqs.map((f,i)=><Rv key={i} delay={i*.04}><button onClick={()=>setOq(oq===i?null:i)} style={{width:"100%",textAlign:"left",background:"none",border:"none",padding:"20px 0",borderBottom:"1px solid var(--lg)",display:"flex",justifyContent:"space-between",alignItems:"center",gap:16}}><h4 style={{fontSize:".9rem",fontWeight:600,color:"var(--black)"}}>{f.q}</h4><span style={{fontFamily:"var(--serif)",fontSize:"1.3rem",color:"var(--nude)",transform:oq===i?"rotate(45deg)":"rotate(0)",transition:"transform .3s",flexShrink:0}}>+</span></button>{oq===i&&<div style={{padding:"12px 0 20px",animation:"fadeIn .25s ease-out"}}><P style={{fontSize:".85rem"}}>{f.a}</P></div>}</Rv>)}
     </div></section>
-
-    <section id="policies" style={{padding:"80px 24px",background:"var(--white)",borderTop:"1px solid var(--lg)"}}><div style={{maxWidth:700,margin:"0 auto"}}>
-      <Rv><div style={{textAlign:"center",marginBottom:40}}><Eye>Studio Policies</Eye><H2>Cancellation & <span style={{fontStyle:"italic",color:"var(--nude)"}}>policies</span></H2></div></Rv>
-      {[
-        {t:"Class Cancellations",d:"Classes may be canceled up to 12 hours before the scheduled start time without penalty. Late cancellation (within 12 hours): $15 fee. No-show: $20 fee. This policy applies to all members, including Unlimited Memberships."},
-        {t:"Class Packages",d:"If you're using a class package, a late cancellation or no-show will result in one class being deducted from your package."},
-        {t:"Waitlist Policy",d:"If you're moved from the waitlist into class, you are responsible for canceling if you can no longer attend. Once you're added to class, the standard cancellation policy applies."},
-        {t:"Late Arrivals",d:"For the safety of our members and to minimize disruptions, we recommend arriving at least 10–15 minutes before class. Late arrivals may not be admitted once class has begun."},
-        {t:"Kids Club Cancellation",d:"Kids Club reservations must be canceled at least 12 hours before class. Late cancellation (within 12 hours): $5 per child. No-show: $10 per child. If no children are registered for a Kids Club session, Studio Zo reserves the right to cancel that session."},
-        {t:"Membership Cancellation",d:"Membership cancellations require 30 days' written notice before your next billing date. Founding Member pricing is forfeited upon cancellation and cannot be reinstated."},
-        {t:"Refund Policy",d:"All membership fees, class packages, retail purchases, childcare fees, and event tickets are non-refundable."},
-      ].map((p,i)=><Rv key={i} delay={i*.04}>
-        <div style={{marginBottom:24}}>
-          <h3 style={{fontFamily:"var(--sans)",fontSize:".88rem",fontWeight:700,color:"var(--black)",marginBottom:8}}>{p.t}</h3>
-          <P style={{fontSize:".85rem"}}>{p.d}</P>
-        </div>
-      </Rv>)}
-    </div></section>
   </div>
 }
 
-// ═══════════ POLICIES (standalone page) ═══════════
-function Policies(){
-  return<div className="pi">
-    <section style={{padding:"80px 24px 60px",textAlign:"center",background:"var(--ivory)"}}>
-      <Rv><Eye>Studio Policies</Eye><H2>Cancellation & <span style={{fontStyle:"italic",color:"var(--nude)"}}>Policies</span></H2><P style={{maxWidth:520,margin:"14px auto 0"}}>Please review our studio policies before booking your first class.</P></Rv>
-    </section>
-    <section style={{padding:"0 24px 80px",background:"var(--ivory)"}}>
-      <div style={{maxWidth:700,margin:"0 auto"}}>
-        {[
-          {t:"Class Cancellations",d:"Classes may be canceled up to 12 hours before the scheduled start time without penalty. Late cancellation (within 12 hours): $15 fee. No-show: $20 fee. This policy applies to all members, including Unlimited Memberships."},
-          {t:"Class Packages",d:"If you're using a class package, a late cancellation or no-show will result in one class being deducted from your package."},
-          {t:"Waitlist Policy",d:"If you're moved from the waitlist into class, you are responsible for canceling if you can no longer attend. Once you're added to class, the standard cancellation policy applies."},
-          {t:"Late Arrivals",d:"For the safety of our members and to minimize disruptions, we recommend arriving at least 10–15 minutes before class. Late arrivals may not be admitted once class has begun."},
-          {t:"Kids Club Cancellation",d:"Kids Club reservations must be canceled at least 12 hours before class. Late cancellation (within 12 hours): $5 per child. No-show: $10 per child. If no children are registered for a Kids Club session, Studio Zo reserves the right to cancel that session."},
-          {t:"Membership Cancellation",d:"Membership cancellations require 30 days' written notice before your next billing date. Founding Member pricing is forfeited upon cancellation and cannot be reinstated."},
-          {t:"Refund Policy",d:"All membership fees, class packages, retail purchases, childcare fees, and event tickets are non-refundable."},
-        ].map((p,i)=><Rv key={i} delay={i*.04}>
-          <div style={{marginBottom:28}}>
-            <h3 style={{fontFamily:"var(--sans)",fontSize:".9rem",fontWeight:700,color:"var(--black)",marginBottom:10}}>{p.t}</h3>
-            <P style={{fontSize:".88rem"}}>{p.d}</P>
-          </div>
-        </Rv>)}
-      </div>
-    </section>
-  </div>
-}
+// ═══════════ EVENTS ═══════════
 function Events(){
   return<div className="pi">
     <section style={{padding:"80px 24px 50px",textAlign:"center",background:"var(--ivory)"}}><Rv><Eye>Events & Community</Eye><H2>More than a <span style={{fontStyle:"italic",color:"var(--nude)"}}>workout</span></H2><P style={{maxWidth:480,margin:"14px auto 0"}}>Workshops, special events, and community gatherings that go beyond the mat.</P></Rv></section>
     <section style={{padding:"20px 24px 40px",background:"var(--ivory)"}}><div style={{maxWidth:1100,margin:"0 auto"}}><div className="mc" style={{display:"grid",gridTemplateColumns:"1fr 1fr 1fr",gap:14}}><Rv delay={.05}><img src="assets/pilateszo.jpeg" alt="Event" style={{width:"100%",aspectRatio:"4/3",objectFit:"cover",borderRadius:6}}/></Rv><Rv delay={.15}><img src="assets/porchzo.jpeg" alt="Event" style={{width:"100%",aspectRatio:"4/3",objectFit:"cover",borderRadius:6}}/></Rv><Rv delay={.25}><img src="assets/porshexzo.jpeg" alt="Event" style={{width:"100%",aspectRatio:"4/3",objectFit:"cover",borderRadius:6}}/></Rv></div></div></section>
     <section style={{padding:"40px 24px 60px",background:"var(--ivory)"}}><div style={{maxWidth:700,margin:"0 auto",textAlign:"center"}}><Rv><p style={{fontSize:".65rem",fontWeight:700,letterSpacing:".25em",color:"var(--gray)",marginBottom:28}}>TRUSTED BY BRANDS INCLUDING</p><div style={{display:"flex",justifyContent:"center",alignItems:"center",gap:40,flexWrap:"wrap",opacity:.7}}>{["Porsche","Land Rover","Rhone","La Vie"].map((b,i)=><span key={i} style={{fontFamily:"var(--serif)",fontSize:"1.3rem",fontWeight:500,fontStyle:"italic"}}>{b}</span>)}</div></Rv></div></section>
     <section style={{padding:"40px 24px 60px",background:"var(--white)",borderTop:"1px solid var(--lg)"}}><div style={{maxWidth:980,margin:"0 auto"}}><Rv><p style={{fontSize:".62rem",fontWeight:700,letterSpacing:".22em",color:"var(--nude)",marginBottom:24,textAlign:"center"}}>UPCOMING EVENTS</p></Rv><Rv delay={.1}><div style={{background:"var(--white)",border:"1px solid var(--lg)",borderRadius:6,overflow:"hidden"}}><iframe src="https://www.eventbrite.com/o/120805755958" title="Events" style={{width:"100%",height:680,border:"none"}} loading="lazy"/></div></Rv><Rv delay={.2}><div style={{textAlign:"center",marginTop:20}}><Btn outline href="https://www.eventbrite.com/o/120805755958">View All Events on Eventbrite <Ext/></Btn></div></Rv></div></section>
+    <section style={{padding:"60px 24px",background:"var(--ivory)",borderTop:"1px solid var(--lg)"}}><div style={{maxWidth:700,margin:"0 auto",textAlign:"center"}}>
+      <Rv><Eye>Private Events</Eye><H2>Host your next event <span style={{fontStyle:"italic",color:"var(--nude)"}}>at Studio Zo</span></H2>
+      <P style={{maxWidth:560,margin:"16px auto 0"}}>Looking to host a private Pilates class, birthday celebration, corporate wellness event, moms' group, bridal shower, or other special gathering? We'd love to host you at Studio Zo!</P>
+      <P style={{maxWidth:560,margin:"16px auto 0"}}>Please submit all private event and private studio rental inquiries to <a href="mailto:info@studiozopilates.com" style={{color:"var(--nude)",fontWeight:600}}>info@studiozopilates.com</a>, and our team will be in touch with availability, pricing, and customization options.</P>
+      <div style={{marginTop:28}}><Btn nude href="mailto:info@studiozopilates.com">Inquire About Private Events <Arr/></Btn></div>
+      </Rv></div></section>
     <section style={{padding:"60px 24px",background:"var(--nude-bg)",textAlign:"center"}}><Rv><Eye>Stay in the Loop</Eye><H2 sz="clamp(1.4rem,3vw,1.8rem)">Join our mailing list</H2><P style={{maxWidth:420,margin:"12px auto 0"}}>Be first to hear about workshops, events, and exclusive offers.</P><div style={{maxWidth:440,margin:"24px auto 0",display:"flex"}}><input type="email" placeholder="Enter your email" className="input-field" style={{borderRight:"none",borderRadius:"2px 0 0 2px"}}/><button style={{padding:"13px 24px",background:"var(--nude)",border:"none",fontSize:".65rem",fontWeight:700,letterSpacing:".1em",textTransform:"uppercase",color:"var(--white)",borderRadius:"0 2px 2px 0",fontFamily:"var(--sans)"}}>Subscribe</button></div></Rv></section>
   </div>
 }
@@ -409,8 +360,8 @@ function ZoKids(){
     <section style={{padding:"20px 24px 80px",background:"var(--ivory)"}}><div className="mc" style={{maxWidth:780,margin:"0 auto",display:"grid",gridTemplateColumns:"1fr 1fr",gap:16}}>{[
       {t:"Pricing",d:"$60/month unlimited childcare add-on to any membership. $10 drop-in per class if not subscribed."},
       {t:"Included with Founding",d:"Unlimited + Zo Kids memberships include childcare for 1 child at no additional cost."},
-      {t:"The Experience",d:"Ages 1–12. A dedicated, thoughtfully designed kids space with age-appropriate activities — just steps from your class. Grip socks are required for all children."},
-      {t:"How It Works",d:"Reserve your child's spot at least 12 hours before class through BSport. Parents must remain on-site during class. If no children are registered, Studio Zo reserves the right to cancel that session."},
+      {t:"The Experience",d:"A dedicated, thoughtfully designed kids space with age-appropriate activities—just steps from your class."},
+      {t:"How It Works",d:"Reserve your child's spot directly through BSport when booking your class. Simple, seamless, and built into your routine."},
     ].map((c,i)=><Rv key={i} delay={i*.06}><div style={{background:"var(--white)",borderRadius:6,padding:"22px 18px",border:"1px solid var(--lg)"}}><p style={{fontSize:".62rem",fontWeight:700,letterSpacing:".15em",color:"var(--nude)",marginBottom:8}}>{c.t.toUpperCase()}</p><P style={{fontSize:".85rem"}}>{c.d}</P></div></Rv>)}</div>
       <Rv delay={.3}><div style={{textAlign:"center",marginTop:36}}><Btn nude href={BSPORT_URL}>Get Unlimited + Zo Kids — $219/mo <Arr/></Btn></div></Rv>
     </section>
@@ -580,7 +531,6 @@ function App(){
       page==="events"?<Events/>:
       page==="zokids"?<ZoKids/>:
       page==="contact"?<Contact/>:
-      page==="policies"?<Policies/>:
       page==="privacy"?<Privacy/>:
       <Home go={go}/>
     }</main>
