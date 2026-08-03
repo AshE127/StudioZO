@@ -74,7 +74,7 @@ function BsportWidget({type:t="calendar",h=650}){
 function PB(){return<a href={PRESS_LINK} target="_blank" rel="noopener" style={{display:"block",background:"var(--black)",color:"var(--ivory)",padding:"8px 16px",textAlign:"center",position:"relative",zIndex:101}}><span style={{fontFamily:"var(--sans)",fontSize:".65rem",fontWeight:500,letterSpacing:".18em",textTransform:"uppercase",display:"inline-flex",alignItems:"center",gap:10}}><span style={{color:"var(--nude)"}}>★</span> As seen on Fox 5 DC <span style={{opacity:.5}}>·</span> ABC 7 Good Morning Washington <Ext/></span></a>}
 
 // NAV
-const PAGES=[{id:"home",label:"Home"},{id:"memberships",label:"Pricing"},{id:"schedule",label:"Schedule"},{id:"about",label:"About",sub:[{id:"story",label:"Our Story"},{id:"method",label:"Find Your Flow"},{id:"founder",label:"Founder"},{id:"differentiators",label:"What Makes Us Different"},{id:"faq",label:"FAQ"}]},{id:"events",label:"Events"},{id:"zokids",label:"Zo Kids"},{id:"contact",label:"Contact"}];
+const PAGES=[{id:"home",label:"Home"},{id:"memberships",label:"Pricing"},{id:"schedule",label:"Schedule"},{id:"about",label:"About",sub:[{id:"story",label:"Our Story"},{id:"method",label:"Find Your Flow"},{id:"founder",label:"Founder"},{id:"differentiators",label:"What Makes Us Different"},{id:"faq",label:"FAQ"},{id:"policies",label:"Policies"}]},{id:"events",label:"Events"},{id:"zokids",label:"Zo Kids"},{id:"contact",label:"Contact"}];
 
 function Nav({page:pg,go}){
   const[sc,setSc]=useState(false);const[op,setOp]=useState(false);const[ab,setAb]=useState(false);
@@ -134,6 +134,7 @@ function Popup({onClose:cl}){
         </div>
       </div>
       <Btn nude full href={BSPORT_URL} onClick={cl}>Claim Your Spot <Arr/></Btn>
+      <P style={{fontSize:".7rem",marginTop:14,color:"var(--gray)"}}>First month today · No charges until one month after we open</P>
       <button onClick={cl} style={{background:"none",border:"none",marginTop:8,fontSize:".7rem",color:"var(--gray)",fontFamily:"var(--sans)",textDecoration:"underline"}}>Browse the site first</button>
     </div>
   </div>
@@ -176,6 +177,7 @@ function Ftr({go}){
         <div style={{display:"flex",alignItems:"center",gap:16,flexWrap:"wrap"}}>
           <p style={{fontSize:".7rem",color:"rgba(255,255,255,.3)"}}>© 2026 Studio Zo. All rights reserved.</p>
           <button onClick={()=>nav("privacy")} style={{background:"none",border:"none",fontSize:".65rem",color:"rgba(255,255,255,.35)",fontFamily:"var(--sans)",textDecoration:"underline",padding:0}}>Privacy Policy</button>
+          <button onClick={()=>nav("policies")} style={{background:"none",border:"none",fontSize:".65rem",color:"rgba(255,255,255,.35)",fontFamily:"var(--sans)",textDecoration:"underline",padding:0}}>Studio Policies</button>
         </div>
         <p style={{fontSize:".65rem",color:"rgba(255,255,255,.3)",letterSpacing:".1em"}}>SWEAT · SCULPT · ALIGN</p>
       </div>
@@ -218,6 +220,7 @@ function Home({go}){
         <Rv delay={.05}><FTier name="Unlimited" sub="Unlimited Classes" price="179" orig="220" code="LORTONVA2026"/></Rv>
         <Rv delay={.15}><FTier name="Unlimited + Zo Kids" sub="Unlimited + Childcare" price="219" orig="270" code="LORTONKIDSVA2026" pop/></Rv>
       </div>
+      <Rv delay={.3}><p style={{textAlign:"center",fontSize:".78rem",color:"var(--gray)",marginTop:22,fontStyle:"italic",maxWidth:640,margin:"22px auto 0"}}>You'll pay your first month today to lock in your rate. You won't be charged again until one month after we open.</p></Rv>
     </div></section>
 
     <section style={{padding:"90px 24px",background:"var(--white)"}}><div style={{maxWidth:1100,margin:"0 auto"}}>
@@ -248,13 +251,14 @@ function Memberships(){
     <section style={{padding:"30px 24px 60px",background:"var(--ivory)"}}><div style={{maxWidth:1100,margin:"0 auto"}}>
       <Rv><p style={{fontSize:".66rem",fontWeight:700,letterSpacing:".25em",color:"var(--nude)",textAlign:"center",marginBottom:28}}>★ FOUNDING MEMBERSHIPS — LIMITED SPOTS ★</p></Rv>
       <div className="mc" style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:20,maxWidth:880,margin:"0 auto"}}><Rv delay={.05}><FTier name="Unlimited" sub="Unlimited Classes" price="179" orig="220" code="LORTONVA2026"/></Rv><Rv delay={.15}><FTier name="Unlimited + Zo Kids" sub="Unlimited + Childcare" price="219" orig="270" code="LORTONKIDSVA2026" pop/></Rv></div>
+      <Rv delay={.3}><p style={{textAlign:"center",fontSize:".78rem",color:"var(--gray)",marginTop:22,fontStyle:"italic",maxWidth:640,margin:"22px auto 0"}}>You'll pay your first month today to lock in your rate. You won't be charged again until one month after we open.</p></Rv>
     </div></section>
 
     <section style={{padding:"60px 24px",background:"var(--white)",borderTop:"1px solid var(--lg)"}}><div style={{maxWidth:880,margin:"0 auto"}}><Rv><div style={{textAlign:"center",marginBottom:36}}><Eye>Other Memberships</Eye><H2 sz="clamp(1.5rem,3vw,2rem)">Flexible options</H2></div></Rv>
       <div className="mc" style={{display:"grid",gridTemplateColumns:"1fr 1fr 1fr",gap:16}}>{[
-        {n:"8 Classes / Month",p:"$149",per:"/month",d:"Stay consistent with a structured routine—without committing to unlimited access. Ideal for 2 classes per week."},
-        {n:"5-Class Pack",p:"$165",per:"",d:"Move on your schedule with flexible access to Studio Zo classes. Perfect for getting started or supplementing your routine."},
-        {n:"10-Class Pack",p:"$300",per:"",d:"Designed for consistency, with a lower cost per class. A flexible option for those building a regular practice."},
+        {n:"8 Classes / Month",p:"$189",per:"/month",d:"Stay consistent with a structured routine—without committing to unlimited access. Ideal for 2 classes per week."},
+        {n:"5-Class Pack",p:"$125",per:"",d:"Move on your schedule with flexible access to Studio Zo classes. Perfect for getting started or supplementing your routine."},
+        {n:"10-Class Pack",p:"$210",per:"",d:"Designed for consistency, with a lower cost per class. A flexible option for those building a regular practice."},
       ].map((m,i)=><Rv key={i} delay={i*.08}><div style={{background:"var(--ivory)",borderRadius:6,padding:"28px 22px",border:"1px solid var(--lg)",height:"100%"}}><p style={{fontSize:".62rem",fontWeight:700,letterSpacing:".22em",color:"var(--nude)",marginBottom:10}}>{m.n.toUpperCase()}</p><p style={{marginBottom:10}}><span style={{fontFamily:"var(--serif)",fontSize:"2rem",fontWeight:600}}>{m.p}</span><span style={{fontSize:".78rem",color:"var(--gray)"}}>{m.per}</span></p><P style={{fontSize:".82rem"}}>{m.d}</P></div></Rv>)}</div>
     </div></section>
 
@@ -328,6 +332,53 @@ function About(){
     <section id="faq" style={{padding:"80px 24px",background:"var(--ivory)",borderTop:"1px solid var(--lg)"}}><div style={{maxWidth:700,margin:"0 auto"}}><Rv><div style={{textAlign:"center",marginBottom:40}}><Eye>FAQ</Eye><H2>Common <span style={{fontStyle:"italic",color:"var(--nude)"}}>questions</span></H2></div></Rv>
       {faqs.map((f,i)=><Rv key={i} delay={i*.04}><button onClick={()=>setOq(oq===i?null:i)} style={{width:"100%",textAlign:"left",background:"none",border:"none",padding:"20px 0",borderBottom:"1px solid var(--lg)",display:"flex",justifyContent:"space-between",alignItems:"center",gap:16}}><h4 style={{fontSize:".9rem",fontWeight:600,color:"var(--black)"}}>{f.q}</h4><span style={{fontFamily:"var(--serif)",fontSize:"1.3rem",color:"var(--nude)",transform:oq===i?"rotate(45deg)":"rotate(0)",transition:"transform .3s",flexShrink:0}}>+</span></button>{oq===i&&<div style={{padding:"12px 0 20px",animation:"fadeIn .25s ease-out"}}><P style={{fontSize:".85rem"}}>{f.a}</P></div>}</Rv>)}
     </div></section>
+
+    <section id="policies" style={{padding:"80px 24px",background:"var(--white)",borderTop:"1px solid var(--lg)"}}><div style={{maxWidth:700,margin:"0 auto"}}>
+      <Rv><div style={{textAlign:"center",marginBottom:40}}><Eye>Studio Policies</Eye><H2>Cancellation & <span style={{fontStyle:"italic",color:"var(--nude)"}}>policies</span></H2></div></Rv>
+      {[
+        {t:"Class Cancellations",d:"Classes may be canceled up to 12 hours before the scheduled start time without penalty. Late cancellation (within 12 hours): $15 fee. No-show: $20 fee. This policy applies to all members, including Unlimited Memberships."},
+        {t:"Class Packages",d:"If you're using a class package, a late cancellation or no-show will result in one class being deducted from your package."},
+        {t:"Waitlist Policy",d:"If you're moved from the waitlist into class, you are responsible for canceling if you can no longer attend. Once you're added to class, the standard cancellation policy applies."},
+        {t:"Late Arrivals",d:"For the safety of our members and to minimize disruptions, we recommend arriving at least 10–15 minutes before class. Late arrivals may not be admitted once class has begun."},
+        {t:"Kids Club Cancellation",d:"Kids Club reservations must be canceled at least 12 hours before class. Late cancellation (within 12 hours): $5 per child. No-show: $10 per child. If no children are registered for a Kids Club session, Studio Zo reserves the right to cancel that session."},
+        {t:"Membership Cancellation",d:"Membership cancellations require 30 days' written notice before your next billing date. Founding Member pricing is forfeited upon cancellation and cannot be reinstated."},
+        {t:"Refund Policy",d:"All membership fees, class packages, retail purchases, childcare fees, and event tickets are non-refundable."},
+        {t:"In-Class Recording Policy",d:"To protect the privacy and comfort of all Studio Zo members, recording during class is not permitted unless you are positioned in the back row with no other members behind you. Photos and videos may be taken before or after class, but please remain mindful of others and avoid capturing anyone without their permission. Studio Zo may occasionally film designated classes for marketing purposes. Members will be notified in advance when this applies."},
+      ].map((p,i)=><Rv key={i} delay={i*.04}>
+        <div style={{marginBottom:24}}>
+          <h3 style={{fontFamily:"var(--sans)",fontSize:".88rem",fontWeight:700,color:"var(--black)",marginBottom:8}}>{p.t}</h3>
+          <P style={{fontSize:".85rem"}}>{p.d}</P>
+        </div>
+      </Rv>)}
+    </div></section>
+  </div>
+}
+
+// ═══════════ POLICIES (standalone page) ═══════════
+function Policies(){
+  return<div className="pi">
+    <section style={{padding:"80px 24px 60px",textAlign:"center",background:"var(--ivory)"}}>
+      <Rv><Eye>Studio Policies</Eye><H2>Cancellation & <span style={{fontStyle:"italic",color:"var(--nude)"}}>Policies</span></H2><P style={{maxWidth:520,margin:"14px auto 0"}}>Please review our studio policies before booking your first class.</P></Rv>
+    </section>
+    <section style={{padding:"0 24px 80px",background:"var(--ivory)"}}>
+      <div style={{maxWidth:700,margin:"0 auto"}}>
+        {[
+          {t:"Class Cancellations",d:"Classes may be canceled up to 12 hours before the scheduled start time without penalty. Late cancellation (within 12 hours): $15 fee. No-show: $20 fee. This policy applies to all members, including Unlimited Memberships."},
+          {t:"Class Packages",d:"If you're using a class package, a late cancellation or no-show will result in one class being deducted from your package."},
+          {t:"Waitlist Policy",d:"If you're moved from the waitlist into class, you are responsible for canceling if you can no longer attend. Once you're added to class, the standard cancellation policy applies."},
+          {t:"Late Arrivals",d:"For the safety of our members and to minimize disruptions, we recommend arriving at least 10–15 minutes before class. Late arrivals may not be admitted once class has begun."},
+          {t:"Kids Club Cancellation",d:"Kids Club reservations must be canceled at least 12 hours before class. Late cancellation (within 12 hours): $5 per child. No-show: $10 per child. If no children are registered for a Kids Club session, Studio Zo reserves the right to cancel that session."},
+          {t:"Membership Cancellation",d:"Membership cancellations require 30 days' written notice before your next billing date. Founding Member pricing is forfeited upon cancellation and cannot be reinstated."},
+          {t:"Refund Policy",d:"All membership fees, class packages, retail purchases, childcare fees, and event tickets are non-refundable."},
+          {t:"In-Class Recording Policy",d:"To protect the privacy and comfort of all Studio Zo members, recording during class is not permitted unless you are positioned in the back row with no other members behind you. Photos and videos may be taken before or after class, but please remain mindful of others and avoid capturing anyone without their permission. Studio Zo may occasionally film designated classes for marketing purposes. Members will be notified in advance when this applies."},
+        ].map((p,i)=><Rv key={i} delay={i*.04}>
+          <div style={{marginBottom:28}}>
+            <h3 style={{fontFamily:"var(--sans)",fontSize:".9rem",fontWeight:700,color:"var(--black)",marginBottom:10}}>{p.t}</h3>
+            <P style={{fontSize:".88rem"}}>{p.d}</P>
+          </div>
+        </Rv>)}
+      </div>
+    </section>
   </div>
 }
 
@@ -338,12 +389,6 @@ function Events(){
     <section style={{padding:"20px 24px 40px",background:"var(--ivory)"}}><div style={{maxWidth:1100,margin:"0 auto"}}><div className="mc" style={{display:"grid",gridTemplateColumns:"1fr 1fr 1fr",gap:14}}><Rv delay={.05}><img src="assets/pilateszo.jpeg" alt="Event" style={{width:"100%",aspectRatio:"4/3",objectFit:"cover",borderRadius:6}}/></Rv><Rv delay={.15}><img src="assets/porchzo.jpeg" alt="Event" style={{width:"100%",aspectRatio:"4/3",objectFit:"cover",borderRadius:6}}/></Rv><Rv delay={.25}><img src="assets/porshexzo.jpeg" alt="Event" style={{width:"100%",aspectRatio:"4/3",objectFit:"cover",borderRadius:6}}/></Rv></div></div></section>
     <section style={{padding:"40px 24px 60px",background:"var(--ivory)"}}><div style={{maxWidth:700,margin:"0 auto",textAlign:"center"}}><Rv><p style={{fontSize:".65rem",fontWeight:700,letterSpacing:".25em",color:"var(--gray)",marginBottom:28}}>TRUSTED BY BRANDS INCLUDING</p><div style={{display:"flex",justifyContent:"center",alignItems:"center",gap:40,flexWrap:"wrap",opacity:.7}}>{["Porsche","Land Rover","Rhone","La Vie"].map((b,i)=><span key={i} style={{fontFamily:"var(--serif)",fontSize:"1.3rem",fontWeight:500,fontStyle:"italic"}}>{b}</span>)}</div></Rv></div></section>
     <section style={{padding:"40px 24px 60px",background:"var(--white)",borderTop:"1px solid var(--lg)"}}><div style={{maxWidth:980,margin:"0 auto"}}><Rv><p style={{fontSize:".62rem",fontWeight:700,letterSpacing:".22em",color:"var(--nude)",marginBottom:24,textAlign:"center"}}>UPCOMING EVENTS</p></Rv><Rv delay={.1}><div style={{background:"var(--white)",border:"1px solid var(--lg)",borderRadius:6,overflow:"hidden"}}><iframe src="https://www.eventbrite.com/o/120805755958" title="Events" style={{width:"100%",height:680,border:"none"}} loading="lazy"/></div></Rv><Rv delay={.2}><div style={{textAlign:"center",marginTop:20}}><Btn outline href="https://www.eventbrite.com/o/120805755958">View All Events on Eventbrite <Ext/></Btn></div></Rv></div></section>
-    <section style={{padding:"60px 24px",background:"var(--ivory)",borderTop:"1px solid var(--lg)"}}><div style={{maxWidth:700,margin:"0 auto",textAlign:"center"}}>
-      <Rv><Eye>Private Events</Eye><H2>Host your next event <span style={{fontStyle:"italic",color:"var(--nude)"}}>at Studio Zo</span></H2>
-      <P style={{maxWidth:560,margin:"16px auto 0"}}>Looking to host a private Pilates class, birthday celebration, corporate wellness event, moms' group, bridal shower, or other special gathering? We'd love to host you at Studio Zo!</P>
-      <P style={{maxWidth:560,margin:"16px auto 0"}}>Please submit all private event and private studio rental inquiries to <a href="mailto:info@studiozopilates.com" style={{color:"var(--nude)",fontWeight:600}}>info@studiozopilates.com</a>, and our team will be in touch with availability, pricing, and customization options.</P>
-      <div style={{marginTop:28}}><Btn nude href="mailto:info@studiozopilates.com">Inquire About Private Events <Arr/></Btn></div>
-      </Rv></div></section>
     <section style={{padding:"60px 24px",background:"var(--nude-bg)",textAlign:"center"}}><Rv><Eye>Stay in the Loop</Eye><H2 sz="clamp(1.4rem,3vw,1.8rem)">Join our mailing list</H2><P style={{maxWidth:420,margin:"12px auto 0"}}>Be first to hear about workshops, events, and exclusive offers.</P><div style={{maxWidth:440,margin:"24px auto 0",display:"flex"}}><input type="email" placeholder="Enter your email" className="input-field" style={{borderRight:"none",borderRadius:"2px 0 0 2px"}}/><button style={{padding:"13px 24px",background:"var(--nude)",border:"none",fontSize:".65rem",fontWeight:700,letterSpacing:".1em",textTransform:"uppercase",color:"var(--white)",borderRadius:"0 2px 2px 0",fontFamily:"var(--sans)"}}>Subscribe</button></div></Rv></section>
   </div>
 }
@@ -531,6 +576,7 @@ function App(){
       page==="events"?<Events/>:
       page==="zokids"?<ZoKids/>:
       page==="contact"?<Contact/>:
+      page==="policies"?<Policies/>:
       page==="privacy"?<Privacy/>:
       <Home go={go}/>
     }</main>
