@@ -87,7 +87,7 @@ function Nav({page:pg,go}){
         <button onClick={()=>nav("home")} style={{background:"none",border:"none",padding:0}}><img src={LOGO_NAV} alt="Studio Zo" style={{height:sc?28:34,transition:"height .3s"}}/></button>
         <div style={{display:"flex",alignItems:"center",gap:24}}>
           <div className="dk" style={{display:"flex",gap:20,alignItems:"center"}}>{PAGES.map(p=><button key={p.id} onClick={()=>nav(p.id)} style={{background:"none",border:"none",padding:"4px 0",fontFamily:"var(--sans)",fontSize:".66rem",fontWeight:pg===p.id?700:500,letterSpacing:".1em",textTransform:"uppercase",color:pg===p.id?"var(--nude)":"var(--black)",borderBottom:pg===p.id?"1.5px solid var(--nude)":"1.5px solid transparent",transition:"all .25s"}}>{p.label}</button>)}</div>
-          <Btn nude href={BSPORT_URL} style={{padding:"10px 18px",fontSize:".56rem",letterSpacing:".12em"}}>Claim Founding</Btn>
+          <Btn nude href={BSPORT_URL} style={{padding:"10px 18px",fontSize:".56rem",letterSpacing:".12em"}}>Book a Class</Btn>
           <button className="mb" onClick={()=>setOp(true)} style={{background:"none",border:"none",color:"var(--black)",padding:4}}><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button>
         </div>
       </div>
@@ -99,46 +99,11 @@ function Nav({page:pg,go}){
         <button onClick={()=>{if(p.sub)setAb(!ab);else nav(p.id)}} style={{width:"100%",background:"none",border:"none",textAlign:"left",padding:"15px 0",fontFamily:"var(--serif)",fontSize:"1.45rem",fontWeight:500,color:pg===p.id?"var(--nude)":"var(--black)",borderBottom:"1px solid var(--lg)",display:"flex",justifyContent:"space-between",alignItems:"center"}}><span>{p.label}</span>{p.sub&&<span style={{fontSize:".9rem",transform:ab?"rotate(90deg)":"rotate(0)",transition:"transform .3s",color:"var(--nude)"}}>›</span>}</button>
         {p.sub&&ab&&<div style={{paddingLeft:16,borderLeft:"1px solid var(--nude)",marginLeft:8,marginTop:4,marginBottom:8}}>{p.sub.map(s=><button key={s.id} onClick={()=>nav("about",s.id)} style={{display:"block",width:"100%",textAlign:"left",background:"none",border:"none",padding:"10px 12px",fontFamily:"var(--sans)",fontSize:".82rem",fontWeight:500,color:"var(--text)"}}>— {s.label}</button>)}</div>}
       </div>)}
-      <div style={{marginTop:"auto",paddingTop:28}}><Btn nude full href={BSPORT_URL}>Claim Founding Membership</Btn><div style={{marginTop:16,display:"flex",justifyContent:"center"}}><Soc color="var(--gray)"/></div></div>
+      <div style={{marginTop:"auto",paddingTop:28}}><Btn nude full href={BSPORT_URL}>Book a Class</Btn><div style={{marginTop:16,display:"flex",justifyContent:"center"}}><Soc color="var(--gray)"/></div></div>
     </div>
   </>
 }
 
-// Intro Popup
-function Popup({onClose:cl}){
-  return<div style={{position:"fixed",inset:0,zIndex:200,display:"flex",alignItems:"center",justifyContent:"center",padding:24}} onClick={cl}>
-    <div style={{position:"absolute",inset:0,background:"rgba(0,0,0,.55)",backdropFilter:"blur(5px)"}}/>
-    <div onClick={e=>e.stopPropagation()} style={{position:"relative",background:"var(--ivory)",maxWidth:520,width:"100%",padding:"42px 32px 32px",textAlign:"center",borderRadius:6,animation:"fadeUp .4s ease-out",border:"1px solid var(--lg)"}}>
-      <button onClick={cl} style={{position:"absolute",top:14,right:14,background:"none",border:"none",color:"var(--gray)",fontSize:"1.3rem",padding:6}}>✕</button>
-      <img src={LOGO_MONO} alt="SZ" style={{height:54,margin:"0 auto 16px"}}/>
-      <Eye>Founding Membership · Limited Spots</Eye>
-      <H2 sz="clamp(1.5rem,3.8vw,2rem)" style={{marginBottom:12}}>Lock in <span style={{fontStyle:"italic",color:"var(--nude)"}}>founding</span> pricing forever</H2>
-      <P style={{maxWidth:380,margin:"0 auto 24px",fontSize:".85rem"}}>Your rate will never increase. Plus exclusive perks on Studio Zo events.</P>
-      <div style={{display:"grid",gridTemplateColumns:"1fr",gap:10,marginBottom:18}}>
-        <div style={{background:"var(--white)",border:"1px solid var(--lg)",padding:"16px 18px",borderRadius:4,textAlign:"left"}}>
-          <div style={{display:"flex",justifyContent:"space-between",alignItems:"baseline",marginBottom:6,flexWrap:"wrap",gap:8}}>
-            <span style={{fontSize:".7rem",fontWeight:700,letterSpacing:".18em",color:"var(--nude)"}}>UNLIMITED</span>
-            <span><span style={{fontSize:".75rem",color:"var(--gray)",textDecoration:"line-through",marginRight:8}}>$220</span><span style={{fontFamily:"var(--serif)",fontSize:"1.5rem",fontWeight:600}}>$179</span><span style={{fontSize:".7rem",color:"var(--gray)"}}>/mo</span></span>
-          </div>
-          <div style={{fontSize:".7rem",color:"var(--text)",marginBottom:2}}>Use code at checkout:</div>
-          <code style={{display:"inline-block",background:"var(--nude-bg)",color:"var(--nude-dk)",padding:"3px 9px",fontSize:".72rem",fontWeight:700,letterSpacing:".08em",borderRadius:2,fontFamily:"monospace"}}>LORTONVA2026</code>
-        </div>
-        <div style={{background:"var(--white)",border:"1px solid var(--nude)",padding:"16px 18px",borderRadius:4,textAlign:"left",position:"relative"}}>
-          <span style={{position:"absolute",top:-9,right:14,background:"var(--nude)",color:"var(--white)",padding:"2px 9px",fontSize:".55rem",fontWeight:700,letterSpacing:".12em",borderRadius:2}}>MOST POPULAR</span>
-          <div style={{display:"flex",justifyContent:"space-between",alignItems:"baseline",marginBottom:6,flexWrap:"wrap",gap:8}}>
-            <span style={{fontSize:".7rem",fontWeight:700,letterSpacing:".18em",color:"var(--nude)"}}>UNLIMITED + ZO KIDS</span>
-            <span><span style={{fontSize:".75rem",color:"var(--gray)",textDecoration:"line-through",marginRight:8}}>$270</span><span style={{fontFamily:"var(--serif)",fontSize:"1.5rem",fontWeight:600}}>$219</span><span style={{fontSize:".7rem",color:"var(--gray)"}}>/mo</span></span>
-          </div>
-          <div style={{fontSize:".7rem",color:"var(--text)",marginBottom:2}}>Use code at checkout:</div>
-          <code style={{display:"inline-block",background:"var(--nude-bg)",color:"var(--nude-dk)",padding:"3px 9px",fontSize:".72rem",fontWeight:700,letterSpacing:".08em",borderRadius:2,fontFamily:"monospace"}}>LORTONKIDSVA2026</code>
-        </div>
-      </div>
-      <Btn nude full href={BSPORT_URL} onClick={cl}>Claim Your Spot <Arr/></Btn>
-      <P style={{fontSize:".7rem",marginTop:14,color:"var(--gray)"}}>First month today · No charges until one month after we open</P>
-      <button onClick={cl} style={{background:"none",border:"none",marginTop:8,fontSize:".7rem",color:"var(--gray)",fontFamily:"var(--sans)",textDecoration:"underline"}}>Browse the site first</button>
-    </div>
-  </div>
-}
 
 // Footer
 function Ftr({go}){
@@ -149,7 +114,7 @@ function Ftr({go}){
         <div>
           <img src={LOGO_FULL_WHITE} alt="Studio Zo" style={{height:56,marginBottom:16}}/>
           <p style={{fontSize:".82rem",fontWeight:300,color:"rgba(255,255,255,.65)",lineHeight:1.7,marginBottom:16}}>Northern Virginia's first infrared heated mat Pilates studio with on-site childcare.</p>
-          <Btn nude href={BSPORT_URL} style={{padding:"10px 18px",fontSize:".58rem",marginBottom:16}}>Claim Founding</Btn>
+          <Btn nude href={BSPORT_URL} style={{padding:"10px 18px",fontSize:".58rem",marginBottom:16}}>Book a Class</Btn>
           <Soc color="rgba(255,255,255,.5)"/>
         </div>
         <div>
@@ -184,16 +149,15 @@ function Ftr({go}){
   </footer>
 }
 
-// Founding tier card helper
-function FTier({name,sub,price,orig,code,pop}){
+// Membership tier card helper
+function Tier({name,sub,price,features,pop}){
   return<div style={{background:"var(--white)",border:pop?"2px solid var(--nude)":"1px solid var(--lg)",padding:"38px 30px",borderRadius:6,height:"100%",display:"flex",flexDirection:"column",position:"relative"}}>
     {pop&&<span style={{position:"absolute",top:-1,right:24,background:"var(--nude)",color:"var(--white)",padding:"4px 12px",fontSize:".58rem",fontWeight:700,letterSpacing:".15em",borderRadius:"0 0 4px 4px"}}>MOST POPULAR</span>}
     <Eye>{name}</Eye>
     <H2 sz="clamp(1.4rem,3vw,1.8rem)" style={{marginBottom:12}}>{sub}</H2>
-    <div style={{marginBottom:20}}><span style={{fontSize:".95rem",color:"var(--gray)",textDecoration:"line-through",marginRight:10}}>${orig}</span><span style={{fontFamily:"var(--serif)",fontSize:"2.6rem",fontWeight:600}}>${price}</span><span style={{fontSize:".85rem",color:"var(--gray)"}}>/month</span></div>
-    <div style={{flex:1,marginBottom:24}}>{(pop?["Everything in Unlimited","Includes 1 child in Zo Kids","Drop in for class hassle-free","Exclusive event perks","Priority booking"]:["Unlimited classes","All Zo classes (Sculpt, Flow, Method, Restore)","Founding rate locked in forever","Exclusive event perks","Priority booking"]).map((f,j)=><div key={j} style={{display:"flex",alignItems:"flex-start",gap:10,marginBottom:10}}><span style={{marginTop:2}}><Chk/></span><span style={{fontSize:".85rem",color:"var(--text)"}}>{f}</span></div>)}</div>
-    <div style={{padding:"14px",background:"var(--nude-bg)",borderRadius:4,marginBottom:16,textAlign:"center"}}><p style={{fontSize:".68rem",color:"var(--text)",marginBottom:6}}>Use code at checkout:</p><code style={{fontSize:".88rem",fontWeight:700,color:"var(--nude-dk)",letterSpacing:".1em",fontFamily:"monospace"}}>{code}</code></div>
-    <Btn nude full href={BSPORT_URL}>Claim Founding <Arr/></Btn>
+    <div style={{marginBottom:20}}><span style={{fontFamily:"var(--serif)",fontSize:"2.6rem",fontWeight:600}}>${price}</span><span style={{fontSize:".85rem",color:"var(--gray)"}}>/month</span></div>
+    <div style={{flex:1,marginBottom:24}}>{features.map((f,j)=><div key={j} style={{display:"flex",alignItems:"flex-start",gap:10,marginBottom:10}}><span style={{marginTop:2}}><Chk/></span><span style={{fontSize:".85rem",color:"var(--text)"}}>{f}</span></div>)}</div>
+    <Btn nude full href={BSPORT_URL}>Get Started <Arr/></Btn>
   </div>
 }
 
@@ -204,22 +168,22 @@ function Home({go}){
     <section style={{minHeight:"86vh",display:"flex",alignItems:"center",justifyContent:"center",position:"relative",overflow:"hidden",background:"var(--ivory)",padding:"60px 24px"}}>
       <div style={{position:"absolute",inset:0,background:"var(--ivory)"}}/>
       <div style={{position:"relative",zIndex:1,textAlign:"center",maxWidth:820}}>
-        <Rv delay={.1}><Eye>Founding Memberships Now Open · Limited Spots</Eye></Rv>
+        <Rv delay={.1}><Eye>Now Open in Lorton, Virginia</Eye></Rv>
         <Rv delay={.15}><h1 style={{fontFamily:"var(--serif)",fontSize:"clamp(2.2rem,5.5vw,4rem)",fontWeight:500,lineHeight:1.1,color:"var(--black)",marginBottom:10}}>Northern Virginia's First<br/><span style={{fontStyle:"italic",color:"var(--nude)"}}>Infrared Heated</span> Mat Pilates Studio<br/><span style={{fontSize:"clamp(1.4rem,3.5vw,2.4rem)",fontWeight:400}}>with Childcare</span></h1></Rv>
         <Rv delay={.2}><P style={{maxWidth:520,margin:"0 auto 32px",fontSize:".95rem",fontStyle:"italic"}}>Finally, a workout you don't have to plan childcare around.</P></Rv>
-        <Rv delay={.3}><div className="ms" style={{display:"flex",gap:12,justifyContent:"center",flexWrap:"wrap",marginBottom:14}}><Btn nude href={BSPORT_URL} style={{padding:"17px 38px",fontSize:".75rem",animation:"pulseN 2.5s ease-in-out infinite"}}>Claim Founding Membership <Arr/></Btn><Btn outline onClick={()=>nav("memberships")}>View Pricing</Btn></div></Rv>
-        <Rv delay={.4}><p style={{fontSize:".7rem",color:"var(--gray)",fontWeight:500}}>Starting at <strong style={{color:"var(--nude-dk)"}}>$179/mo</strong> · Lock in this rate forever</p></Rv>
+        <Rv delay={.3}><div className="ms" style={{display:"flex",gap:12,justifyContent:"center",flexWrap:"wrap",marginBottom:14}}><Btn nude href={BSPORT_URL} style={{padding:"17px 38px",fontSize:".75rem",animation:"pulseN 2.5s ease-in-out infinite"}}>Book a Class <Arr/></Btn><Btn outline onClick={()=>nav("memberships")}>View Pricing</Btn></div></Rv>
+        <Rv delay={.4}><p style={{fontSize:".7rem",color:"var(--gray)",fontWeight:500}}>Memberships starting at <strong style={{color:"var(--nude-dk)"}}>$149/mo</strong></p></Rv>
       </div>
     </section>
     <div style={{padding:"14px 0",overflow:"hidden",borderTop:"1px solid var(--lg)",borderBottom:"1px solid var(--lg)",background:"var(--white)"}}><div style={{display:"flex",whiteSpace:"nowrap",animation:"marquee 30s linear infinite"}}>{[...Array(10)].map((_,i)=><span key={i} style={{fontFamily:"var(--serif)",fontSize:"1rem",fontWeight:500,color:"var(--nude)",opacity:.65,padding:"0 26px",letterSpacing:".05em"}}>INFRARED HEATED · MAT PILATES · ZO KIDS · COMMUNITY ·</span>)}</div></div>
 
     <section style={{padding:"100px 24px",background:"var(--ivory)"}}><div style={{maxWidth:1100,margin:"0 auto"}}>
-      <Rv><div style={{textAlign:"center",marginBottom:50}}><Eye>Founding Membership · Limited Spots</Eye><H2>Lock in <span style={{fontStyle:"italic",color:"var(--nude)"}}>founding</span> pricing forever</H2><P style={{maxWidth:520,margin:"16px auto 0"}}>Your rate will never increase. Founding members also get exclusive perks on Studio Zo events.</P></div></Rv>
+      <Rv><div style={{textAlign:"center",marginBottom:50}}><Eye>Memberships</Eye><H2>Find the plan that <span style={{fontStyle:"italic",color:"var(--nude)"}}>fits</span> your life</H2><P style={{maxWidth:520,margin:"16px auto 0"}}>Flexible membership options designed to meet you wherever you are in your Pilates journey.</P></div></Rv>
       <div className="mc" style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:20,maxWidth:880,margin:"0 auto"}}>
-        <Rv delay={.05}><FTier name="Unlimited" sub="Unlimited Classes" price="179" orig="220" code="LORTONVA2026"/></Rv>
-        <Rv delay={.15}><FTier name="Unlimited + Zo Kids" sub="Unlimited + Childcare" price="219" orig="270" code="LORTONKIDSVA2026" pop/></Rv>
+        <Rv delay={.05}><Tier name="Unlimited" sub="Unlimited Classes" price="220" features={["Unlimited classes","All Zo classes (Sculpt, Flow, Method, Restore)","Exclusive event perks","Priority booking"]}/></Rv>
+        <Rv delay={.15}><Tier name="Unlimited + Zo Kids" sub="Unlimited + Childcare" price="270" features={["Everything in Unlimited","Includes 1 child in Zo Kids","Drop in for class hassle-free","Exclusive event perks","Priority booking"]} pop/></Rv>
       </div>
-      <Rv delay={.3}><p style={{textAlign:"center",fontSize:".78rem",color:"var(--gray)",marginTop:22,fontStyle:"italic",maxWidth:640,margin:"22px auto 0"}}>You'll pay your first month today to lock in your rate. You won't be charged again until one month after we open.</p></Rv>
+      <Rv delay={.3}><p style={{textAlign:"center",fontSize:".78rem",color:"var(--gray)",marginTop:22,fontStyle:"italic",maxWidth:640,margin:"22px auto 0"}}>All memberships auto-renew monthly. Cancel anytime.</p></Rv>
     </div></section>
 
     <section style={{padding:"90px 24px",background:"var(--white)"}}><div style={{maxWidth:1100,margin:"0 auto"}}>
@@ -232,25 +196,25 @@ function Home({go}){
 
     <section style={{padding:"70px 24px",background:"var(--ivory)",borderTop:"1px solid var(--lg)",borderBottom:"1px solid var(--lg)"}}><Rv><div style={{maxWidth:720,margin:"0 auto",textAlign:"center"}}><p style={{fontFamily:"var(--serif)",fontSize:"clamp(1.3rem,3vw,1.9rem)",fontWeight:400,fontStyle:"italic",lineHeight:1.55}}>"From burnout to breakthrough — your refill starts here. Pour back into <span style={{color:"var(--nude)"}}>you</span>."</p></div></Rv></section>
 
-    <section style={{padding:"90px 24px",background:"var(--white)"}}><div style={{maxWidth:980,margin:"0 auto"}}><Rv><div style={{textAlign:"center",marginBottom:36}}><Eye>Quick Checkout</Eye><H2>Ready to <span style={{fontStyle:"italic",color:"var(--nude)"}}>begin</span>?</H2><P style={{maxWidth:480,margin:"14px auto 0"}}>Subscribe directly below or use one of the founding membership codes above for special pricing.</P></div></Rv><BsportWidget type="subscription" h={500}/></div></section>
+    <section style={{padding:"90px 24px",background:"var(--white)"}}><div style={{maxWidth:980,margin:"0 auto"}}><Rv><div style={{textAlign:"center",marginBottom:36}}><Eye>Quick Checkout</Eye><H2>Ready to <span style={{fontStyle:"italic",color:"var(--nude)"}}>begin</span>?</H2><P style={{maxWidth:480,margin:"14px auto 0"}}>Subscribe directly below to get started with your membership.</P></div></Rv><BsportWidget type="subscription" h={500}/></div></section>
 
     <section style={{padding:"80px 24px",background:"var(--ivory)"}}><div style={{maxWidth:1100,margin:"0 auto"}}><Rv><div style={{textAlign:"center",marginBottom:48}}><Eye>Community</Eye><H2>What members are saying</H2></div></Rv>
       <div className="mc" style={{display:"grid",gridTemplateColumns:"repeat(3,1fr)",gap:20}}>{[{t:"Studio Zo has completely transformed how I feel in my body. The infrared heat, the intentional movement — it's unlike any studio I've tried.",n:"Jessica M."},{t:"The childcare option is a game-changer. I can actually show up for myself knowing my kids are happy and safe, just steps away.",n:"Rachel T."},{t:"From the moment I walked in, I felt at home. The space is beautiful, the instructors are incredible, and I'm genuinely addicted.",n:"Amanda K."}].map((t,i)=><Rv key={i} delay={i*.1}><div style={{background:"var(--white)",borderRadius:6,padding:"30px 24px",height:"100%",display:"flex",flexDirection:"column"}}><div style={{display:"flex",gap:3,marginBottom:14}}>{[...Array(5)].map((_,j)=><svg key={j} width="13" height="13" viewBox="0 0 24 24" fill="var(--nude)" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>)}</div><p style={{fontSize:".88rem",color:"var(--text)",lineHeight:1.75,fontStyle:"italic",flex:1}}>"{t.t}"</p><p style={{fontSize:".72rem",fontWeight:700,letterSpacing:".08em",color:"var(--nude)",marginTop:16}}>— {t.n}</p></div></Rv>)}</div>
     </div></section>
 
-    <section style={{padding:"80px 24px",background:"var(--nude-bg)",textAlign:"center",borderTop:"1px solid rgba(201,124,93,.12)"}}><Rv><Eye>Limited Founding Spots</Eye><H2 style={{marginBottom:12}}>Meet us on the mat.</H2><P style={{maxWidth:440,margin:"0 auto 30px"}}>Lock in founding pricing today. Your rate will never increase.</P><Btn nude href={BSPORT_URL}>Claim Founding Membership <Arr/></Btn></Rv></section>
+    <section style={{padding:"80px 24px",background:"var(--nude-bg)",textAlign:"center",borderTop:"1px solid rgba(201,124,93,.12)"}}><Rv><Eye>Join the Studio</Eye><H2 style={{marginBottom:12}}>Meet us on the mat.</H2><P style={{maxWidth:440,margin:"0 auto 30px"}}>Your journey to strength, balance, and community starts here.</P><Btn nude href={BSPORT_URL}>Book a Class <Arr/></Btn></Rv></section>
   </div>
 }
 
 // ═══════════ MEMBERSHIPS ═══════════
 function Memberships(){
   return<div className="pi">
-    <section style={{padding:"80px 24px 50px",textAlign:"center",background:"var(--ivory)"}}><Rv><Eye>Memberships & Pricing</Eye><H2>Invest in <span style={{fontStyle:"italic",color:"var(--nude)"}}>you</span></H2><P style={{maxWidth:480,margin:"14px auto 0"}}>Founding memberships now open — limited spots available. Lock in this rate forever.</P></Rv></section>
+    <section style={{padding:"80px 24px 50px",textAlign:"center",background:"var(--ivory)"}}><Rv><Eye>Memberships & Pricing</Eye><H2>Invest in <span style={{fontStyle:"italic",color:"var(--nude)"}}>you</span></H2><P style={{maxWidth:480,margin:"14px auto 0"}}>Flexible membership options designed to meet you wherever you are in your Pilates journey.</P></Rv></section>
 
     <section style={{padding:"30px 24px 60px",background:"var(--ivory)"}}><div style={{maxWidth:1100,margin:"0 auto"}}>
-      <Rv><p style={{fontSize:".66rem",fontWeight:700,letterSpacing:".25em",color:"var(--nude)",textAlign:"center",marginBottom:28}}>★ FOUNDING MEMBERSHIPS — LIMITED SPOTS ★</p></Rv>
-      <div className="mc" style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:20,maxWidth:880,margin:"0 auto"}}><Rv delay={.05}><FTier name="Unlimited" sub="Unlimited Classes" price="179" orig="220" code="LORTONVA2026"/></Rv><Rv delay={.15}><FTier name="Unlimited + Zo Kids" sub="Unlimited + Childcare" price="219" orig="270" code="LORTONKIDSVA2026" pop/></Rv></div>
-      <Rv delay={.3}><p style={{textAlign:"center",fontSize:".78rem",color:"var(--gray)",marginTop:22,fontStyle:"italic",maxWidth:640,margin:"22px auto 0"}}>You'll pay your first month today to lock in your rate. You won't be charged again until one month after we open.</p></Rv>
+      <Rv><p style={{fontSize:".66rem",fontWeight:700,letterSpacing:".25em",color:"var(--nude)",textAlign:"center",marginBottom:28}}>★ UNLIMITED MEMBERSHIPS ★</p></Rv>
+      <div className="mc" style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:20,maxWidth:880,margin:"0 auto"}}><Rv delay={.05}><Tier name="Unlimited" sub="Unlimited Classes" price="220" features={["Unlimited classes","All Zo classes (Sculpt, Flow, Method, Restore)","Exclusive event perks","Priority booking"]}/></Rv><Rv delay={.15}><Tier name="Unlimited + Zo Kids" sub="Unlimited + Childcare" price="270" features={["Everything in Unlimited","Includes 1 child in Zo Kids","Drop in for class hassle-free","Exclusive event perks","Priority booking"]} pop/></Rv></div>
+      <Rv delay={.3}><p style={{textAlign:"center",fontSize:".78rem",color:"var(--gray)",marginTop:22,fontStyle:"italic",maxWidth:640,margin:"22px auto 0"}}>All memberships auto-renew monthly. Cancel anytime.</p></Rv>
     </div></section>
 
     <section style={{padding:"60px 24px",background:"var(--white)",borderTop:"1px solid var(--lg)"}}><div style={{maxWidth:880,margin:"0 auto"}}><Rv><div style={{textAlign:"center",marginBottom:36}}><Eye>Other Memberships</Eye><H2 sz="clamp(1.5rem,3vw,2rem)">Flexible options</H2></div></Rv>
@@ -269,7 +233,7 @@ function Memberships(){
       ].map((a,i)=><Rv key={i} delay={i*.06}><div style={{background:"var(--white)",borderRadius:6,padding:"22px 18px",border:"1px solid var(--lg)",textAlign:"center",height:"100%"}}><p style={{fontSize:".58rem",fontWeight:700,letterSpacing:".18em",color:"var(--nude)",marginBottom:10}}>{a.n.toUpperCase()}</p><p style={{marginBottom:8}}><span style={{fontFamily:"var(--serif)",fontSize:"1.7rem",fontWeight:600}}>{a.p}</span><span style={{fontSize:".7rem",color:"var(--gray)"}}>{a.per}</span></p><P style={{fontSize:".78rem"}}>{a.d}</P></div></Rv>)}</div>
     </div></section>
 
-    <section style={{padding:"60px 24px 80px",background:"var(--white)",borderTop:"1px solid var(--lg)"}}><div style={{maxWidth:980,margin:"0 auto"}}><Rv><div style={{textAlign:"center",marginBottom:32}}><Eye>Subscribe Now</Eye><H2 sz="clamp(1.5rem,3vw,2rem)">Choose your membership</H2><P style={{maxWidth:480,margin:"12px auto 0"}}>Apply your founding code at checkout.</P></div></Rv><BsportWidget type="subscription" h={500}/></div></section>
+    <section style={{padding:"60px 24px 80px",background:"var(--white)",borderTop:"1px solid var(--lg)"}}><div style={{maxWidth:980,margin:"0 auto"}}><Rv><div style={{textAlign:"center",marginBottom:32}}><Eye>Subscribe Now</Eye><H2 sz="clamp(1.5rem,3vw,2rem)">Choose your membership</H2><P style={{maxWidth:480,margin:"12px auto 0"}}>Select your membership and subscribe below.</P></div></Rv><BsportWidget type="subscription" h={500}/></div></section>
   </div>
 }
 
@@ -299,7 +263,7 @@ function About(){
     {q:"How does Zo Kids work?",a:"Reserve your child's spot through BSport when booking your class. It's included with the Unlimited + Zo Kids membership, or $10 per drop-in."},
     {q:"What's your cancellation policy?",a:"Changes or cancellations can be made up to 12 hours before class. Late cancellations or no-shows may result in a fee or class deduction."},
     {q:"Where is Studio Zo located?",a:"7708 Gunston Plaza, Lorton, VA 22079."},
-    {q:"When does Studio Zo open?",a:"Founding memberships are available now. Follow us on social media for updates on our official opening date."},
+    {q:"When does Studio Zo open?",a:"Studio Zo is now open! Book a class or sign up for a membership through our website."},
   ];
   return<div className="pi">
     <section id="story" style={{padding:"80px 24px 60px",textAlign:"center",background:"var(--ivory)"}}><Rv><Eye>Our Story</Eye><H2>About <span style={{fontStyle:"italic",color:"var(--nude)"}}>Studio Zo</span></H2><P style={{maxWidth:520,margin:"14px auto 0"}}>More than a studio — a sanctuary for movement, community, and transformation.</P></Rv></section>
@@ -356,11 +320,11 @@ function ZoKids(){
     <section style={{padding:"20px 24px 50px",background:"var(--ivory)"}}><div style={{maxWidth:780,margin:"0 auto"}}><Rv><div style={{background:"var(--white)",borderRadius:8,padding:"36px 28px",textAlign:"center",border:"1px solid var(--lg)"}}><p style={{fontFamily:"var(--serif)",fontSize:"clamp(1.1rem,2.5vw,1.45rem)",fontWeight:400,fontStyle:"italic",lineHeight:1.6}}>"Being a parent shouldn't mean putting yourself last. Zo Kids lets me show up for my workout knowing my child is safe, happy, and right nearby."</p><p style={{fontSize:".72rem",fontWeight:700,letterSpacing:".08em",color:"var(--nude)",marginTop:14}}>— Studio Zo Member</p></div></Rv></div></section>
     <section style={{padding:"20px 24px 80px",background:"var(--ivory)"}}><div className="mc" style={{maxWidth:780,margin:"0 auto",display:"grid",gridTemplateColumns:"1fr 1fr",gap:16}}>{[
       {t:"Pricing",d:"$60/month unlimited childcare add-on to any membership. $10 drop-in per class if not subscribed."},
-      {t:"Included with Founding",d:"Unlimited + Zo Kids memberships include childcare for 1 child at no additional cost."},
+      {t:"Included with Membership",d:"Unlimited + Zo Kids memberships include childcare for 1 child at no additional cost."},
       {t:"The Experience",d:"A dedicated, thoughtfully designed kids space with age-appropriate activities—just steps from your class."},
       {t:"How It Works",d:"Reserve your child's spot directly through BSport when booking your class. Simple, seamless, and built into your routine."},
     ].map((c,i)=><Rv key={i} delay={i*.06}><div style={{background:"var(--white)",borderRadius:6,padding:"22px 18px",border:"1px solid var(--lg)"}}><p style={{fontSize:".62rem",fontWeight:700,letterSpacing:".15em",color:"var(--nude)",marginBottom:8}}>{c.t.toUpperCase()}</p><P style={{fontSize:".85rem"}}>{c.d}</P></div></Rv>)}</div>
-      <Rv delay={.3}><div style={{textAlign:"center",marginTop:36}}><Btn nude href={BSPORT_URL}>Get Unlimited + Zo Kids — $219/mo <Arr/></Btn></div></Rv>
+      <Rv delay={.3}><div style={{textAlign:"center",marginTop:36}}><Btn nude href={BSPORT_URL}>Get Unlimited + Zo Kids — $270/mo <Arr/></Btn></div></Rv>
     </section>
   </div>
 }
@@ -502,7 +466,7 @@ function Privacy(){
 function App(){
   const getPage=()=>(window.location.hash.replace("#","") || "home");
   const[page,setPage]=useState(getPage);
-  const[popup,setPopup]=useState(true);
+
 
   // Sync page state with URL hash
   const go=(id)=>{
@@ -519,7 +483,6 @@ function App(){
 
   return<>
     <Nav page={page} go={go}/>
-    {popup&&<Popup onClose={()=>setPopup(false)}/>}
     <main>{
       page==="home"?<Home go={go}/>:
       page==="memberships"?<Memberships/>:
