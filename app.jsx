@@ -152,7 +152,7 @@ function Ftr({go}){
         <div>
           <p style={{fontSize:".62rem",fontWeight:700,letterSpacing:".22em",color:"var(--nude)",marginBottom:18}}>HOURS</p>
           <div style={{fontSize:".82rem",fontWeight:400,color:"rgba(255,255,255,.65)",lineHeight:2.2}}>
-            <p>Mon – Fri: 6:00 AM – 7:00 PM</p>
+            <p>Mon – Fri: 6:00 AM – 7:30 PM</p>
             <p>Saturday: 8:00 AM – 11:00 AM</p>
             <p>Sunday: Closed</p>
           </div>
@@ -268,13 +268,13 @@ function Memberships(){
 function Schedule(){
   return<div className="pi">
     <section style={{padding:"80px 24px 40px",textAlign:"center",background:"var(--ivory)"}}><Rv><Eye>Schedule & Booking</Eye><H2>Find your <span style={{fontStyle:"italic",color:"var(--nude)"}}>class</span></H2><P style={{maxWidth:520,margin:"14px auto 0"}}>Browse our weekly schedule and book with ease. Changes or cancellations can be made up to 12 hours in advance. Late cancellations or no-shows may result in a fee or class deduction.</P></Rv></section>
-    <section style={{padding:"0 24px 30px",background:"var(--ivory)"}}><div style={{maxWidth:760,margin:"0 auto",display:"flex",flexWrap:"wrap",gap:18,justifyContent:"center"}}>{[{n:"ZO SCULPT",d:"Signature heated Pilates"},{n:"ZO FLOW",d:"Modern sculpt flow"},{n:"ZO METHOD",d:"Classical Pilates"},{n:"ZO RESTORE",d:"Stretch + recovery"}].map((c,i)=><div key={i} style={{display:"flex",flexDirection:"column",alignItems:"center",gap:4,padding:"10px 16px"}}><span style={{fontSize:".68rem",fontWeight:700,letterSpacing:".15em",color:"var(--nude)"}}>{c.n}</span><span style={{fontSize:".7rem",color:"var(--gray)",fontStyle:"italic"}}>{c.d}</span></div>)}</div></section>
+    <section style={{padding:"0 24px 30px",background:"var(--ivory)"}}><div style={{maxWidth:760,margin:"0 auto",display:"flex",flexWrap:"wrap",gap:18,justifyContent:"center"}}>{[{n:"ZO SCULPT",d:"Signature heated Pilates"},{n:"ZO FLOW",d:"Modern sculpt flow"},{n:"ZO METHOD",d:"Classical Pilates"},{n:"ZO RESTORE",d:"Stretch + recovery"},{n:"ZO FOUNDATIONS",d:"Beginner-friendly Pilates"}].map((c,i)=><div key={i} style={{display:"flex",flexDirection:"column",alignItems:"center",gap:4,padding:"10px 16px"}}><span style={{fontSize:".68rem",fontWeight:700,letterSpacing:".15em",color:"var(--nude)"}}>{c.n}</span><span style={{fontSize:".7rem",color:"var(--gray)",fontStyle:"italic"}}>{c.d}</span></div>)}</div></section>
     <section style={{padding:"0 24px 80px",background:"var(--ivory)"}}><div style={{maxWidth:980,margin:"0 auto"}}><BsportWidget type="calendar" h={650}/></div></section>
 
     <section style={{padding:"60px 24px 80px",background:"var(--white)",borderTop:"1px solid var(--lg)"}}><div style={{maxWidth:680,margin:"0 auto"}}>
       <Rv><div style={{textAlign:"center",marginBottom:10}}><Eye>New Here?</Eye><H2 sz="clamp(1.5rem,3vw,2rem)">What to expect</H2></div></Rv>
       <Rv delay={.05}><p style={{textAlign:"center",fontSize:".85rem",color:"var(--gray)",fontStyle:"italic",marginBottom:36}}>Everything you need to know before your first class.</p></Rv>
-      {[{n:"01",t:"ARRIVE EARLY",d:"Please arrive 10 minutes before class to check in and settle in. Doors close 2 minutes after class begins to maintain the flow of the experience."},{n:"02",t:"WHAT TO BRING",d:"Premium STAKT mats are provided for every class — no need to bring your own! A full-length mat towel is required for sanitation purposes (bring your own or purchase one at the studio). Grip socks are optional but recommended. We also suggest bringing a water bottle to stay hydrated."},{n:"03",t:"HEATED EXPERIENCE",d:"Our infrared heated studio is designed to enhance your workout through deeper movement and increased intensity. Stay hydrated — premium bottled water is available for purchase in-studio."},{n:"04",t:"ALL LEVELS WELCOME",d:"Whether you're new to Pilates or experienced, our classes are designed to meet you where you are, with guided instruction and thoughtful modifications throughout."}].map((s,i)=><Rv key={i} delay={(i+1)*.08}><div style={{display:"flex",gap:18,padding:"22px 0",borderBottom:"1px solid var(--lg)"}}><span style={{fontFamily:"var(--serif)",fontSize:"1.6rem",fontWeight:500,color:"var(--nude)",minWidth:40}}>{s.n}</span><div><h4 style={{fontSize:".85rem",fontWeight:700,color:"var(--black)",marginBottom:6,letterSpacing:".08em"}}>{s.t}</h4><P style={{fontSize:".85rem"}}>{s.d}</P></div></div></Rv>)}
+      {[{n:"01",t:"ARRIVE EARLY",d:"Please arrive at least 10 minutes before class to check in and get settled. For the safety of our members, instructors, and to avoid disrupting the class experience, late entry is strictly prohibited once doors close 2 minutes after the scheduled start time. No exceptions will be made, regardless of the reason for arriving late. We appreciate your understanding and cooperation in maintaining a safe, uninterrupted experience for everyone."},{n:"02",t:"WHAT TO BRING",d:"Premium STAKT mats are provided for every class — no need to bring your own! A full-length mat towel is required for sanitation purposes (bring your own or purchase one at the studio). Grip socks are optional but recommended. We also suggest bringing a water bottle to stay hydrated."},{n:"03",t:"HEATED EXPERIENCE",d:"Our infrared heated studio is designed to enhance your workout through deeper movement and increased intensity. Stay hydrated — premium bottled water is available for purchase in-studio."},{n:"04",t:"ALL LEVELS WELCOME",d:"Whether you're new to Pilates or experienced, our classes are designed to meet you where you are, with guided instruction and thoughtful modifications throughout."}].map((s,i)=><Rv key={i} delay={(i+1)*.08}><div style={{display:"flex",gap:18,padding:"22px 0",borderBottom:"1px solid var(--lg)"}}><span style={{fontFamily:"var(--serif)",fontSize:"1.6rem",fontWeight:500,color:"var(--nude)",minWidth:40}}>{s.n}</span><div><h4 style={{fontSize:".85rem",fontWeight:700,color:"var(--black)",marginBottom:6,letterSpacing:".08em"}}>{s.t}</h4><P style={{fontSize:".85rem"}}>{s.d}</P></div></div></Rv>)}
     </div></section>
   </div>
 }
@@ -302,6 +302,7 @@ function About(){
         {n:"Zo Flow",d:"A dynamic, continuous flow combining Pilates with seamless transitions to build strength and elevate your heart rate."},
         {n:"Zo Method",d:"Classical Pilates rooted in precision and control. Foundational, focused, and form-driven."},
         {n:"Zo Restore",d:"A slower, restorative practice designed to stretch, release, and balance the intensity of your other classes."},
+        {n:"Zo Foundations",d:"Build a strong foundation with this beginner-friendly heated mat Pilates class. Focus on proper form, alignment, breathwork, and controlled movements while building strength, stability, and confidence. Perfect for first-timers or anyone looking to reconnect with the fundamentals."},
       ].map((c,i)=><Rv key={i} delay={i*.08}><div style={{padding:"28px 24px",background:"var(--ivory)",borderLeft:"3px solid var(--nude)",borderRadius:"0 6px 6px 0"}}><p style={{fontSize:".62rem",fontWeight:700,letterSpacing:".22em",color:"var(--nude)",marginBottom:8}}>{c.n.toUpperCase()}</p><H2 sz="clamp(1.2rem,2.5vw,1.5rem)" style={{marginBottom:10}}>{c.n}</H2><P style={{fontSize:".87rem"}}>{c.d}</P></div></Rv>)}</div>
     </div></section>
 
@@ -437,7 +438,7 @@ function Contact(){
         <div style={{marginBottom:36}}>
           <Eye>Hours</Eye>
           <div style={{fontSize:".88rem",color:"var(--text)",lineHeight:2}}>
-            <p>Mon – Fri: 6:00 AM – 7:00 PM</p>
+            <p>Mon – Fri: 6:00 AM – 7:30 PM</p>
             <p>Saturday: 8:00 AM – 11:00 AM</p>
             <p>Sunday: Closed</p>
           </div>
