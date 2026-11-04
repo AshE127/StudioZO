@@ -105,6 +105,26 @@ function Nav({page:pg,go}){
 }
 
 
+// Intro Offer Popup
+function IntroPopup({onClose:cl}){
+  return<div style={{position:"fixed",inset:0,zIndex:200,display:"flex",alignItems:"center",justifyContent:"center",padding:24}} onClick={cl}>
+    <div style={{position:"absolute",inset:0,background:"rgba(0,0,0,.55)",backdropFilter:"blur(5px)"}}/>
+    <div onClick={e=>e.stopPropagation()} style={{position:"relative",background:"var(--ivory)",maxWidth:480,width:"100%",padding:"48px 32px 36px",textAlign:"center",borderRadius:6,animation:"fadeUp .4s ease-out",border:"1px solid var(--lg)"}}>
+      <button onClick={cl} style={{position:"absolute",top:14,right:14,background:"none",border:"none",color:"var(--gray)",fontSize:"1.3rem",padding:6}}>✕</button>
+      <img src={LOGO_MONO} alt="SZ" style={{height:54,margin:"0 auto 18px"}}/>
+      <Eye>New to Studio Zo?</Eye>
+      <H2 sz="clamp(1.5rem,3.8vw,2rem)" style={{marginBottom:8}}>Try us for <span style={{fontStyle:"italic",color:"var(--nude)"}}>7 days</span></H2>
+      <div style={{margin:"18px auto 20px",padding:"20px 24px",background:"var(--white)",border:"2px solid var(--nude)",borderRadius:6}}>
+        <p style={{fontFamily:"var(--serif)",fontSize:"clamp(2rem,5vw,2.8rem)",fontWeight:600,color:"var(--black)",lineHeight:1.1}}>$59</p>
+        <p style={{fontSize:".78rem",color:"var(--text)",marginTop:6,fontWeight:500}}>7 Days Unlimited Pilates</p>
+      </div>
+      <P style={{maxWidth:360,margin:"0 auto 24px",fontSize:".85rem"}}>Experience unlimited classes for a full week. Infrared heated studio, all class styles, all levels welcome.</P>
+      <Btn nude full href={BSPORT_URL} onClick={cl}>Claim Your 7-Day Pass <Arr/></Btn>
+      <button onClick={cl} style={{background:"none",border:"none",marginTop:12,fontSize:".7rem",color:"var(--gray)",fontFamily:"var(--sans)",textDecoration:"underline"}}>Browse the site first</button>
+    </div>
+  </div>
+}
+
 // Footer
 function Ftr({go}){
   const nav=id=>{go(id);window.scrollTo({top:0})};
@@ -256,8 +276,8 @@ function Schedule(){
 function About(){
   const[oq,setOq]=useState(null);
   const faqs=[
-    {q:"What should I wear to class?",a:"Comfortable, form-fitting athletic wear. Grip socks are required for all classes."},
-    {q:"Do I need to bring my own mat?",a:"We recommend bringing your own mat, but premium STAKT mats are available to rent in-studio."},
+    {q:"What should I wear to class?",a:"Comfortable, form-fitting athletic wear. Grip socks are optional but recommended."},
+    {q:"Do I need to bring my own mat?",a:"No need to bring your own mat! Premium STAKT mats are available at the studio. We do require a mat towel with a grip backing for all classes to ensure comfort, stability, and safety during your practice. Mat towels are available for purchase in-studio if you don't have one."},
     {q:"Is Studio Zo beginner-friendly?",a:"Absolutely. All classes are designed for every level, with guided instruction and modifications throughout."},
     {q:"What is infrared heat?",a:"Infrared heat warms your body from within rather than heating the air around you. It supports deeper movement, improved recovery, and a more effective workout — without overwhelming heat."},
     {q:"How does Zo Kids work?",a:"Reserve your child's spot through BSport when booking your class. It's included with the Unlimited + Zo Kids membership, or $10 per drop-in."},
@@ -466,7 +486,7 @@ function Privacy(){
 function App(){
   const getPage=()=>(window.location.hash.replace("#","") || "home");
   const[page,setPage]=useState(getPage);
-
+  const[popup,setPopup]=useState(true);
 
   // Sync page state with URL hash
   const go=(id)=>{
@@ -483,6 +503,7 @@ function App(){
 
   return<>
     <Nav page={page} go={go}/>
+    {popup&&<IntroPopup onClose={()=>setPopup(false)}/>}
     <main>{
       page==="home"?<Home go={go}/>:
       page==="memberships"?<Memberships/>:
