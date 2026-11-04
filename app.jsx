@@ -119,7 +119,7 @@ function IntroPopup({onClose:cl}){
         <p style={{fontSize:".78rem",color:"var(--text)",marginTop:6,fontWeight:500}}>7 Days Unlimited Pilates</p>
       </div>
       <P style={{maxWidth:360,margin:"0 auto 24px",fontSize:".85rem"}}>Experience unlimited classes for a full week. Infrared heated studio, all class styles, all levels welcome.</P>
-      <Btn nude full href={BSPORT_URL} onClick={cl}>Claim Your 7-Day Pass <Arr/></Btn>
+      <Btn nude full href="https://backoffice.bsport.io/pass-express-checkout/5566/807655/paymentPack" onClick={cl}>Claim Your 7-Day Pass <Arr/></Btn>
       <button onClick={cl} style={{background:"none",border:"none",marginTop:12,fontSize:".7rem",color:"var(--gray)",fontFamily:"var(--sans)",textDecoration:"underline"}}>Browse the site first</button>
     </div>
   </div>
