@@ -192,18 +192,19 @@ function Home({go}){
         <Rv delay={.15}><h1 style={{fontFamily:"var(--serif)",fontSize:"clamp(2.2rem,5.5vw,4rem)",fontWeight:500,lineHeight:1.1,color:"var(--black)",marginBottom:10}}>Northern Virginia's First<br/><span style={{fontStyle:"italic",color:"var(--nude)"}}>Infrared Heated</span> Mat Pilates Studio<br/><span style={{fontSize:"clamp(1.4rem,3.5vw,2.4rem)",fontWeight:400}}>with Childcare</span></h1></Rv>
         <Rv delay={.2}><P style={{maxWidth:520,margin:"0 auto 32px",fontSize:".95rem",fontStyle:"italic"}}>Finally, a workout you don't have to plan childcare around.</P></Rv>
         <Rv delay={.3}><div className="ms" style={{display:"flex",gap:12,justifyContent:"center",flexWrap:"wrap",marginBottom:14}}><Btn nude href={BSPORT_URL} style={{padding:"17px 38px",fontSize:".75rem",animation:"pulseN 2.5s ease-in-out infinite"}}>Book a Class <Arr/></Btn><Btn outline onClick={()=>nav("memberships")}>View Pricing</Btn></div></Rv>
-        <Rv delay={.4}><p style={{fontSize:".7rem",color:"var(--gray)",fontWeight:500}}>Memberships starting at <strong style={{color:"var(--nude-dk)"}}>$149/mo</strong></p></Rv>
+        <Rv delay={.4}><p style={{fontSize:".7rem",color:"var(--gray)",fontWeight:500}}>Memberships starting at <strong style={{color:"var(--nude-dk)"}}>$139/mo</strong></p></Rv>
       </div>
     </section>
     <div style={{padding:"14px 0",overflow:"hidden",borderTop:"1px solid var(--lg)",borderBottom:"1px solid var(--lg)",background:"var(--white)"}}><div style={{display:"flex",whiteSpace:"nowrap",animation:"marquee 30s linear infinite"}}>{[...Array(10)].map((_,i)=><span key={i} style={{fontFamily:"var(--serif)",fontSize:"1rem",fontWeight:500,color:"var(--nude)",opacity:.65,padding:"0 26px",letterSpacing:".05em"}}>INFRARED HEATED · MAT PILATES · ZO KIDS · COMMUNITY ·</span>)}</div></div>
 
     <section style={{padding:"100px 24px",background:"var(--ivory)"}}><div style={{maxWidth:1100,margin:"0 auto"}}>
       <Rv><div style={{textAlign:"center",marginBottom:50}}><Eye>Memberships</Eye><H2>Find the plan that <span style={{fontStyle:"italic",color:"var(--nude)"}}>fits</span> your life</H2><P style={{maxWidth:520,margin:"16px auto 0"}}>Flexible membership options designed to meet you wherever you are in your Pilates journey.</P></div></Rv>
-      <div className="mc" style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:20,maxWidth:880,margin:"0 auto"}}>
-        <Rv delay={.05}><Tier name="Unlimited" sub="Unlimited Classes" price="220" features={["Unlimited classes","All Zo classes (Sculpt, Flow, Method, Restore)","Exclusive event perks","Priority booking"]}/></Rv>
-        <Rv delay={.15}><Tier name="Unlimited + Zo Kids" sub="Unlimited + Childcare" price="270" features={["Everything in Unlimited","Includes 1 child in Zo Kids","Drop in for class hassle-free","Exclusive event perks","Priority booking"]} pop/></Rv>
+      <div className="mc" style={{display:"grid",gridTemplateColumns:"1fr 1fr 1fr",gap:20,maxWidth:1100,margin:"0 auto"}}>
+        <Rv delay={.05}><Tier name="Zo 8" sub="8 Classes / Month" price="179" features={["8 classes per month","All Zo classes (Sculpt, Flow, Method, Restore)","Great for 2x per week","Exclusive event perks"]}/></Rv>
+        <Rv delay={.1}><Tier name="Unlimited" sub="Unlimited Classes" price="249" features={["Unlimited classes","All Zo classes (Sculpt, Flow, Method, Restore)","Exclusive event perks","Priority booking"]} pop/></Rv>
+        <Rv delay={.15}><Tier name="Unlimited + Zo Kids" sub="Unlimited + Childcare" price="289" features={["Everything in Unlimited","Includes 1 child in Zo Kids","Drop in for class hassle-free","Exclusive event perks","Priority booking"]}/></Rv>
       </div>
-      <Rv delay={.3}><p style={{textAlign:"center",fontSize:".78rem",color:"var(--gray)",marginTop:22,fontStyle:"italic",maxWidth:640,margin:"22px auto 0"}}>All memberships auto-renew monthly. Cancel anytime.</p></Rv>
+      <Rv delay={.3}><p style={{textAlign:"center",fontSize:".78rem",color:"var(--gray)",marginTop:22,fontStyle:"italic",maxWidth:640,margin:"22px auto 0"}}>All memberships auto-renew every 4 weeks. Cancel anytime.</p></Rv>
     </div></section>
 
     <section style={{padding:"90px 24px",background:"var(--white)"}}><div style={{maxWidth:1100,margin:"0 auto"}}>
@@ -232,14 +233,20 @@ function Memberships(){
     <section style={{padding:"80px 24px 50px",textAlign:"center",background:"var(--ivory)"}}><Rv><Eye>Memberships & Pricing</Eye><H2>Invest in <span style={{fontStyle:"italic",color:"var(--nude)"}}>you</span></H2><P style={{maxWidth:480,margin:"14px auto 0"}}>Flexible membership options designed to meet you wherever you are in your Pilates journey.</P></Rv></section>
 
     <section style={{padding:"30px 24px 60px",background:"var(--ivory)"}}><div style={{maxWidth:1100,margin:"0 auto"}}>
-      <Rv><p style={{fontSize:".66rem",fontWeight:700,letterSpacing:".25em",color:"var(--nude)",textAlign:"center",marginBottom:28}}>★ UNLIMITED MEMBERSHIPS ★</p></Rv>
-      <div className="mc" style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:20,maxWidth:880,margin:"0 auto"}}><Rv delay={.05}><Tier name="Unlimited" sub="Unlimited Classes" price="220" features={["Unlimited classes","All Zo classes (Sculpt, Flow, Method, Restore)","Exclusive event perks","Priority booking"]}/></Rv><Rv delay={.15}><Tier name="Unlimited + Zo Kids" sub="Unlimited + Childcare" price="270" features={["Everything in Unlimited","Includes 1 child in Zo Kids","Drop in for class hassle-free","Exclusive event perks","Priority booking"]} pop/></Rv></div>
-      <Rv delay={.3}><p style={{textAlign:"center",fontSize:".78rem",color:"var(--gray)",marginTop:22,fontStyle:"italic",maxWidth:640,margin:"22px auto 0"}}>All memberships auto-renew monthly. Cancel anytime.</p></Rv>
+      <Rv><p style={{fontSize:".66rem",fontWeight:700,letterSpacing:".25em",color:"var(--nude)",textAlign:"center",marginBottom:28}}>★ MEMBERSHIPS ★</p></Rv>
+      <div className="mc" style={{display:"grid",gridTemplateColumns:"1fr 1fr 1fr",gap:16,maxWidth:1100,margin:"0 auto"}}>
+        <Rv delay={.03}><Tier name="Zo 4" sub="4 Classes / Month" price="139" features={["4 classes per month","All Zo classes (Sculpt, Flow, Method, Restore)","Great for 1x per week","Exclusive event perks"]}/></Rv>
+        <Rv delay={.06}><Tier name="Zo 8" sub="8 Classes / Month" price="179" features={["8 classes per month","All Zo classes (Sculpt, Flow, Method, Restore)","Great for 2x per week","Exclusive event perks"]}/></Rv>
+        <Rv delay={.09}><Tier name="Zo 12" sub="12 Classes / Month" price="219" features={["12 classes per month","All Zo classes (Sculpt, Flow, Method, Restore)","Great for 3x per week","Exclusive event perks"]}/></Rv>
+        <Rv delay={.12}><Tier name="Unlimited" sub="Unlimited Classes" price="249" features={["Unlimited classes","All Zo classes (Sculpt, Flow, Method, Restore)","Exclusive event perks","Priority booking"]} pop/></Rv>
+        <Rv delay={.15}><Tier name="Unlimited + Zo Kids" sub="Unlimited + 1 Child" price="289" features={["Everything in Unlimited","Includes 1 child in Zo Kids","Drop in for class hassle-free","Exclusive event perks","Priority booking"]}/></Rv>
+        <Rv delay={.18}><Tier name="Unlimited + Zo Kids" sub="Unlimited + 2 Children" price="319" features={["Everything in Unlimited","Includes 2 children in Zo Kids","Drop in for class hassle-free","Exclusive event perks","Priority booking"]}/></Rv>
+      </div>
+      <Rv delay={.3}><p style={{textAlign:"center",fontSize:".78rem",color:"var(--gray)",marginTop:22,fontStyle:"italic",maxWidth:640,margin:"22px auto 0"}}>All memberships auto-renew every 4 weeks. Cancel anytime.</p></Rv>
     </div></section>
 
-    <section style={{padding:"60px 24px",background:"var(--white)",borderTop:"1px solid var(--lg)"}}><div style={{maxWidth:880,margin:"0 auto"}}><Rv><div style={{textAlign:"center",marginBottom:36}}><Eye>Other Memberships</Eye><H2 sz="clamp(1.5rem,3vw,2rem)">Flexible options</H2></div></Rv>
-      <div className="mc" style={{display:"grid",gridTemplateColumns:"1fr 1fr 1fr",gap:16}}>{[
-        {n:"8 Classes / Month",p:"$149",per:"/month",d:"Stay consistent with a structured routine—without committing to unlimited access. Ideal for 2 classes per week."},
+    <section style={{padding:"60px 24px",background:"var(--white)",borderTop:"1px solid var(--lg)"}}><div style={{maxWidth:880,margin:"0 auto"}}><Rv><div style={{textAlign:"center",marginBottom:36}}><Eye>Class Packs</Eye><H2 sz="clamp(1.5rem,3vw,2rem)">Flexible options</H2></div></Rv>
+      <div className="mc" style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:16,maxWidth:600,margin:"0 auto"}}>{[
         {n:"5-Class Pack",p:"$125",per:"",d:"Move on your schedule with flexible access to Studio Zo classes. Perfect for getting started or supplementing your routine."},
         {n:"10-Class Pack",p:"$210",per:"",d:"Designed for consistency, with a lower cost per class. A flexible option for those building a regular practice."},
       ].map((m,i)=><Rv key={i} delay={i*.08}><div style={{background:"var(--ivory)",borderRadius:6,padding:"28px 22px",border:"1px solid var(--lg)",height:"100%"}}><p style={{fontSize:".62rem",fontWeight:700,letterSpacing:".22em",color:"var(--nude)",marginBottom:10}}>{m.n.toUpperCase()}</p><p style={{marginBottom:10}}><span style={{fontFamily:"var(--serif)",fontSize:"2rem",fontWeight:600}}>{m.p}</span><span style={{fontSize:".78rem",color:"var(--gray)"}}>{m.per}</span></p><P style={{fontSize:".82rem"}}>{m.d}</P></div></Rv>)}</div>
@@ -344,7 +351,7 @@ function ZoKids(){
       {t:"The Experience",d:"A dedicated, thoughtfully designed kids space with age-appropriate activities—just steps from your class."},
       {t:"How It Works",d:"Reserve your child's spot directly through BSport when booking your class. Simple, seamless, and built into your routine."},
     ].map((c,i)=><Rv key={i} delay={i*.06}><div style={{background:"var(--white)",borderRadius:6,padding:"22px 18px",border:"1px solid var(--lg)"}}><p style={{fontSize:".62rem",fontWeight:700,letterSpacing:".15em",color:"var(--nude)",marginBottom:8}}>{c.t.toUpperCase()}</p><P style={{fontSize:".85rem"}}>{c.d}</P></div></Rv>)}</div>
-      <Rv delay={.3}><div style={{textAlign:"center",marginTop:36}}><Btn nude href={BSPORT_URL}>Get Unlimited + Zo Kids — $270/mo <Arr/></Btn></div></Rv>
+      <Rv delay={.3}><div style={{textAlign:"center",marginTop:36}}><Btn nude href={BSPORT_URL}>Get Unlimited + Zo Kids — $289/mo <Arr/></Btn></div></Rv>
     </section>
   </div>
 }
