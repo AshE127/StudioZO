@@ -247,8 +247,8 @@ function Memberships(){
 
     <section style={{padding:"60px 24px",background:"var(--white)",borderTop:"1px solid var(--lg)"}}><div style={{maxWidth:880,margin:"0 auto"}}><Rv><div style={{textAlign:"center",marginBottom:36}}><Eye>Class Packs</Eye><H2 sz="clamp(1.5rem,3vw,2rem)">Flexible options</H2></div></Rv>
       <div className="mc" style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:16,maxWidth:600,margin:"0 auto"}}>{[
-        {n:"5-Class Pack",p:"$125",per:"",d:"Move on your schedule with flexible access to Studio Zo classes. Perfect for getting started or supplementing your routine."},
-        {n:"10-Class Pack",p:"$210",per:"",d:"Designed for consistency, with a lower cost per class. A flexible option for those building a regular practice."},
+        {n:"5-Class Pack",p:"$165",per:"",d:"Move on your schedule with flexible access to Studio Zo classes. Perfect for getting started or supplementing your routine."},
+        {n:"10-Class Pack",p:"$300",per:"",d:"Designed for consistency, with a lower cost per class. A flexible option for those building a regular practice."},
       ].map((m,i)=><Rv key={i} delay={i*.08}><div style={{background:"var(--ivory)",borderRadius:6,padding:"28px 22px",border:"1px solid var(--lg)",height:"100%"}}><p style={{fontSize:".62rem",fontWeight:700,letterSpacing:".22em",color:"var(--nude)",marginBottom:10}}>{m.n.toUpperCase()}</p><p style={{marginBottom:10}}><span style={{fontFamily:"var(--serif)",fontSize:"2rem",fontWeight:600}}>{m.p}</span><span style={{fontSize:".78rem",color:"var(--gray)"}}>{m.per}</span></p><P style={{fontSize:".82rem"}}>{m.d}</P></div></Rv>)}</div>
     </div></section>
 
